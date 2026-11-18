@@ -156,6 +156,20 @@
     text-decoration: underline;
   }
 
+  .nav-list a.nav-manual {
+    background-color: rgba(138, 107, 46, 0.25);
+    border: 1px solid rgba(210, 199, 174, 0.5);
+    color: #FFFDF7;
+    font-weight: 700;
+  }
+
+  .nav-list a.nav-manual:hover,
+  .nav-list a.nav-manual:focus-visible {
+    background-color: var(--accent-gold);
+    border-color: #E4D5B7;
+    color: #FFFFFF;
+  }
+
   /* Main Sections */
   main {
     padding-bottom: 56px;
@@ -192,38 +206,100 @@
     font-size: 14px;
   }
 
-  /* Summary Notice Banner */
+  /* Quick Start Guide Banner */
   .intro-principles {
     background-color: var(--bg-card);
-    border: 1px solid var(--border-rule);
-    border-left: 4px solid var(--bg-navy);
+    border: 1px solid var(--border-strong);
+    border-left: 4px solid var(--accent-green);
     border-radius: var(--radius-md);
-    padding: 16px 18px;
-    margin-top: 22px;
+    padding: 15px 18px;
+    margin-top: 20px;
+  }
+
+  .quick-guide-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px 14px;
+    margin-bottom: 10px;
   }
 
   .intro-principles h2 {
-    margin: 0 0 8px;
+    margin: 0;
     font-family: var(--font-serif);
-    font-size: 16px;
-    color: var(--bg-navy);
+    font-size: 16.5px;
+    color: var(--accent-green);
+  }
+
+  .quick-guide-note {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    margin: 0;
   }
 
   .intro-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 10px 18px;
-    font-size: 13.5px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px 14px;
+    font-size: 13px;
     margin: 0;
   }
 
-  .intro-item {
+  .quick-step {
+    background-color: var(--bg-paper);
+    border: 1px solid var(--border-rule);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    min-width: 0;
+  }
+
+  .quick-step-title {
+    display: block;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 13.5px;
+    color: var(--bg-navy);
+    margin-bottom: 4px;
+  }
+
+  .quick-step p {
     margin: 0;
     color: var(--text-ink);
+    line-height: 1.55;
+    overflow-wrap: anywhere;
   }
 
-  .intro-item strong {
-    color: var(--accent-green);
+  .quick-guide-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-rule);
+  }
+
+  .launcher-lang-tip {
+    margin: 8px 0 0;
+    padding: 7px 10px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-rule);
+    border-left: 3px solid var(--accent-gold);
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--text-ink);
+    overflow-wrap: anywhere;
+  }
+
+  .launcher-lang-tip code,
+  .quick-step code {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    background-color: var(--bg-parchment);
+    padding: 1px 4px;
+    border-radius: 3px;
   }
 
   /* Library Gallery (Unified Aspect Ratio 16:10) */
@@ -1085,6 +1161,9 @@
   }
 
   @media (max-width: 680px) {
+    .intro-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
     .dual-search-row {
       grid-template-columns: minmax(0, 1fr);
     }
@@ -1158,8 +1237,9 @@
     </div>
     <nav class="site-nav" aria-label="ページ内ナビゲーション">
       <ul class="nav-list">
-        <li><a href="#gallery">世界の図書館風景</a></li>
+        <li><a href="manual.html" class="nav-manual">使い方マニュアル</a></li>
         <li><a href="#directory">アーカイブ検索・絞り込み</a></li>
+        <li><a href="#gallery">世界の図書館風景</a></li>
         <li><a href="#ndl-tiers">NDL 3区分ガイド</a></li>
         <li><a href="#ai-corrections">AI要約の誤り訂正</a></li>
         <li><a href="#methodology">4軸評価とIIIF・Phase 2</a></li>
@@ -1169,14 +1249,29 @@
   </header>
 
   <main class="container">
-    <!-- 調査の大前提 -->
-    <section class="intro-principles" aria-label="本サイトの基本方針">
-      <h2>この案内の見方（従来のリンク集との違い）</h2>
+    <!-- 3ステップ クイックガイド -->
+    <section class="intro-principles" aria-label="はじめての方へ・3ステップの使い方">
+      <div class="quick-guide-head">
+        <h2>はじめての方へ：3ステップの使い方</h2>
+        <p class="quick-guide-note">星評価ではなく「日本から・登録なしで・本文まで読めるか」を4軸で整理しています。</p>
+      </div>
       <div class="intro-grid">
-        <p class="intro-item"><strong>1. アクセス実態の4軸評価：</strong> 登録の重さ（R0〜R4）、日本からの閲覧可否（J3〜J0）、保存方法（D3〜D1）、直接保有かポータルか（T）を併記し、星や総合点は付けません。</p>
-        <p class="intro-item"><strong>2. ポータルは「リンク先依存」：</strong> Europeana・DDB・DPLA・DigitalNZ・NDLI等は原ファイルを保有しないため、J・Dに数値を付けず「リンク先依存」と誠実に表示します。</p>
-        <p class="intro-item"><strong>3. 現地検索ランチャー（v1）：</strong> 検索したい語句を入れると、URL仕様が確実なアーカイブへ直接検索結果を飛ばせます（不確実なものは推測せず通常リンクとします）。</p>
-        <p class="intro-item"><strong>4. IIIF対応の明示：</strong> 高精細画像規格 IIIF に対応し、公式案内があるサービスにはバッジとマニフェスト取得先を掲載しています。</p>
+        <div class="quick-step">
+          <span class="quick-step-title">Step 1｜読める館を絞る</span>
+          <p>一覧パネルの「<strong>登録なしで全文が読めるものだけ表示</strong>」をONにするか、地域・時代・資料種別で目的に合う館を抽出します。</p>
+        </div>
+        <div class="quick-step">
+          <span class="quick-step-title">Step 2｜4軸（R/J/D/T）を読む</span>
+          <p>登録 <strong>R</strong>・日本閲覧 <strong>J</strong>・保存 <strong>D</strong>・型 <strong>T</strong> の4色マスで可否を確認。ポータル型は「リンク先依存（J-/D-）」となります（<a href="#methodology">凡例へ</a>）。</p>
+        </div>
+        <div class="quick-step">
+          <span class="quick-step-title">Step 3｜現地検索ランチャーで飛ぶ</span>
+          <p>書名や地名を<strong>英語・現地語</strong>（例：<code>Japan / Japon / Meiji / Tokyo / Nagasaki</code>）で入力すると、対応館の検索結果へ直接飛べます。</p>
+        </div>
+      </div>
+      <div class="quick-guide-actions">
+        <a class="btn-link btn-search" href="#directory">検索・一覧へすぐ進む ↓</a>
+        <a class="btn-link" href="manual.html">詳しい使い方マニュアルを見る（4軸・海外検索のコツ・IIIF・NDL 3区分） →</a>
       </div>
     </section>
 
@@ -1255,6 +1350,9 @@
         アーカイブ検索・4軸絞り込み・現地検索ランチャー
         <span class="section-heading-sub">地域 &times; 時代 &times; 資料種別 &times; 4軸ラベルで抽出</span>
       </h2>
+      <p class="section-lead" style="margin:4px 0 14px;">
+        用語や操作で迷ったときは <a href="manual.html">使い方マニュアル</a>（<a href="manual.html#axes">4軸の読み方</a>・<a href="manual.html#free-toggle">登録なしトグル</a>・<a href="manual.html#badges">IIIF／追加検証中</a>・<a href="manual.html#ndl">NDL 3区分</a>）またはページ下部の <a href="#methodology">4軸凡例</a> をご確認ください。
+      </p>
 
       <div class="control-panel">
         <div class="dual-search-row">
@@ -1281,6 +1379,9 @@
               <button type="button" class="sample-chip" data-sample="Tokyo">Tokyo</button>
               <button type="button" class="sample-chip" data-sample="地図">地図</button>
             </div>
+            <p class="launcher-lang-tip">
+              <strong>注意：</strong>海外の図書館目録は現地語・英語で登録されているため、日本語のままでは0件になることがあります。英語・現地語・ローマ字（例：<code>Japan</code> / <code>Japon</code> / <code>Meiji</code> / <code>Tokyo</code> / <code>Nagasaki</code>）でお試しください（<a href="manual.html#launcher">検索のコツ</a>）。
+            </p>
             <div id="launcher-status" class="launcher-status" aria-live="polite"></div>
           </div>
         </div>
@@ -1613,7 +1714,7 @@
           本サイトの掲載情報（サービス評価・4軸判定・規模表記・AI要約訂正）は、すべて <code>DATA_SOURCE.md</code>（調査日：2026年11月18日／公式サイト・公式ヘルプのウェブ索引確認）に基づいています。件数は発表時期が異なるため必ず「○年時点」または調査時点を明記し、日本IPからの実ブラウザ個別テストが未了の項目（ポルトガル・イタリア・デンマーク・チェコ・中南米細部・ロシアNEB等）には「追加検証中」を付しています。
         </p>
         <p>
-          検索URLパターンは公式ドキュメントおよび動作確認で確実なもののみ実装し、SPA動的画面等で不定なアーカイブは推測せず通常リンクに留めています。
+          検索URLパターンは公式ドキュメントおよび動作確認で確実なもののみ実装し、SPA動的画面等で不定なアーカイブは推測せず通常リンクに留めています。サイト全体の操作手順は <a href="manual.html">使い方マニュアル</a> をご覧ください。
         </p>
       </div>
       <div>
