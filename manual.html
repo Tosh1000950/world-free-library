@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>使い方マニュアル | 世界の無料デジタル図書館・アーカイブ案内</title>
+<meta name="description" content="「世界の無料デジタル図書館・アーカイブ案内」の取扱説明書。3ステップの使い方、4軸ラベル（R/J/D/T）、登録なしトグル、現地検索ランチャーの外国語入力のコツ、IIIF・追加検証中バッジ、NDL 3区分の見方を解説します。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23182C25'/%3E%3Cpath d='M7 8h8c1.5 0 2 1 2 2v14c-.6-.6-1.4-1-2.5-1H7V8zm18 0h-8c-1.5 0-2 1-2 2v14c.6-.6 1.4-1 2.5-1H25V8z' fill='%23F7F4EC'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg-paper: #F7F4EC;
+    --bg-card: #FCFBF7;
+    --bg-parchment: #EFE9DA;
+    --bg-header: #182C25;
+    --bg-navy: #1E324A;
+    --accent-green: #1E3A2F;
+    --accent-green-hover: #142820;
+    --accent-gold: #8A6B2E;
+    --text-ink: #1F2421;
+    --text-muted: #4E5650;
+    --text-light: #F7F4EC;
+    --border-rule: #D6CEBE;
+    --border-strong: #B4A992;
+    --status-good-bg: #E5EFE8;
+    --status-good-fg: #184A2C;
+    --status-mid-bg: #F5EEDB;
+    --status-mid-fg: #6E4E12;
+    --status-warn-bg: #F6E5E2;
+    --status-warn-fg: #7D291C;
+    --status-portal-bg: #E7EEF5;
+    --status-portal-fg: #1E3A5F;
+    --font-serif: "Shippori Mincho", "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "Noto Serif JP", Georgia, serif;
+    --font-sans: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Meiryo", "Noto Sans JP", system-ui, -apple-system, sans-serif;
+    --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --max-w: 980px;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-paper);
+    color: var(--text-ink);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  a {
+    color: var(--bg-navy);
+    text-underline-offset: 3px;
+  }
+
+  a:hover {
+    color: var(--accent-green);
+  }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background-color: var(--bg-parchment);
+    padding: 1px 5px;
+    border-radius: 3px;
+    overflow-wrap: anywhere;
+  }
+
+  .container {
+    width: 100%;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  /* Header & Navigation */
+  .site-header {
+    background-color: var(--bg-header);
+    color: var(--text-light);
+    border-bottom: 3px solid var(--accent-gold);
+  }
+
+  .header-inner {
+    padding: 26px 16px 20px;
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  .header-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #D2C7AE;
+    margin: 0 0 8px;
+  }
+
+  .site-title {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(21px, 4vw, 31px);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.03em;
+  }
+
+  .site-subtitle {
+    margin: 10px 0 0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #E4DFD3;
+    max-width: 780px;
+  }
+
+  .header-meta {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    font-size: 12.5px;
+    color: #CFC7B4;
+  }
+
+  .site-nav {
+    background-color: #12211C;
+    border-bottom: 1px solid #2A453B;
+  }
+
+  .nav-list {
+    list-style: none;
+    margin: 0 auto;
+    padding: 8px 16px;
+    max-width: var(--max-w);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+  }
+
+  .nav-list a {
+    color: #EAE4D7;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    display: inline-block;
+  }
+
+  .nav-list a:hover,
+  .nav-list a:focus-visible {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+    text-decoration: underline;
+  }
+
+  .nav-list a.nav-back {
+    background-color: rgba(138, 107, 46, 0.25);
+    border: 1px solid rgba(210, 199, 174, 0.5);
+    color: #FFFDF7;
+    font-weight: 700;
+  }
+
+  .nav-list a.nav-back:hover,
+  .nav-list a.nav-back:focus-visible {
+    background-color: var(--accent-gold);
+    border-color: #E4D5B7;
+    color: #FFFFFF;
+  }
+
+  /* Main Content */
+  main {
+    padding: 22px 0 56px;
+  }
+
+  .toc-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-left: 4px solid var(--accent-gold);
+    border-radius: var(--radius-md);
+    padding: 15px 18px;
+    margin-bottom: 24px;
+  }
+
+  .toc-title {
+    margin: 0 0 8px;
+    font-family: var(--font-serif);
+    font-size: 16px;
+    color: var(--accent-green);
+  }
+
+  .toc-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px 16px;
+    font-size: 13.5px;
+  }
+
+  .toc-list a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 2px 0;
+  }
+
+  .toc-list a:hover {
+    text-decoration: underline;
+  }
+
+  .manual-section {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    padding: 20px 22px;
+    margin-bottom: 20px;
+  }
+
+  .manual-section h2 {
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent-green);
+    font-family: var(--font-serif);
+    font-size: clamp(18px, 2.8vw, 22px);
+    color: var(--accent-green);
+    line-height: 1.35;
+  }
+
+  .manual-section h3 {
+    margin: 18px 0 8px;
+    font-family: var(--font-serif);
+    font-size: 16px;
+    color: var(--bg-navy);
+  }
+
+  .manual-section p {
+    margin: 0 0 11px;
+    overflow-wrap: anywhere;
+  }
+
+  .manual-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  .manual-section ul,
+  .manual-section ol {
+    margin: 0 0 12px;
+    padding-left: 20px;
+  }
+
+  .manual-section li + li {
+    margin-top: 6px;
+  }
+
+  /* 3-Step Cards */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 12px 0 14px;
+  }
+
+  .step-card {
+    background-color: var(--bg-paper);
+    border: 1px solid var(--border-rule);
+    border-top: 3px solid var(--accent-green);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    min-width: 0;
+  }
+
+  .step-num {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--accent-green);
+    background-color: var(--status-good-bg);
+    border: 1px solid #BED6C6;
+    border-radius: 3px;
+    padding: 1px 6px;
+    margin-bottom: 6px;
+  }
+
+  .step-card h3 {
+    margin: 0 0 6px;
+    font-size: 15px;
+    color: var(--text-ink);
+  }
+
+  .step-card p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* Callout Boxes */
+  .callout {
+    background-color: var(--bg-parchment);
+    border: 1px solid var(--border-strong);
+    border-left: 4px solid var(--bg-navy);
+    border-radius: var(--radius-sm);
+    padding: 12px 15px;
+    margin: 12px 0;
+    font-size: 13.5px;
+  }
+
+  .callout.warn {
+    background-color: var(--status-warn-bg);
+    border-color: #E0B8B2;
+    border-left-color: var(--status-warn-fg);
+  }
+
+  .callout.good {
+    background-color: var(--status-good-bg);
+    border-color: #BED6C6;
+    border-left-color: var(--status-good-fg);
+  }
+
+  .callout strong.callout-head {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 14.5px;
+    margin-bottom: 4px;
+    color: var(--text-ink);
+  }
+
+  /* 4-Axis Sample Grid (matches index.html) */
+  .sample-pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 12px 0;
+  }
+
+  .sample-card {
+    background-color: var(--bg-paper);
+    border: 1px solid var(--border-rule);
+    border-radius: var(--radius-sm);
+    padding: 11px 12px;
+    min-width: 0;
+  }
+
+  .sample-card-title {
+    margin: 0 0 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent-green);
+  }
+
+  .axis-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .axis-cell {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-rule);
+    border-radius: var(--radius-sm);
+    padding: 6px 7px;
+    min-width: 0;
+  }
+
+  .axis-cell.tone-good {
+    background-color: var(--status-good-bg);
+    border-color: #BED6C6;
+  }
+
+  .axis-cell.tone-mid {
+    background-color: var(--status-mid-bg);
+    border-color: #DFCEA6;
+  }
+
+  .axis-cell.tone-warn {
+    background-color: var(--status-warn-bg);
+    border-color: #E0B8B2;
+  }
+
+  .axis-cell.tone-portal {
+    background-color: var(--status-portal-bg);
+    border-color: #B8CBE0;
+  }
+
+  .axis-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 2px;
+  }
+
+  .axis-name {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 700;
+  }
+
+  .axis-code {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .axis-cell.tone-good .axis-code { color: var(--status-good-fg); }
+  .axis-cell.tone-mid .axis-code { color: var(--status-mid-fg); }
+  .axis-cell.tone-warn .axis-code { color: var(--status-warn-fg); }
+  .axis-cell.tone-portal .axis-code { color: var(--status-portal-fg); }
+
+  .axis-desc {
+    font-size: 11.5px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  /* Keyword Examples Table */
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    margin: 12px 0;
+  }
+
+  .guide-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    background-color: var(--bg-paper);
+  }
+
+  .guide-table th,
+  .guide-table td {
+    padding: 9px 12px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border-rule);
+  }
+
+  .guide-table thead th {
+    background-color: var(--bg-parchment);
+    font-family: var(--font-serif);
+    color: var(--accent-green);
+    border-bottom: 2px solid var(--border-strong);
+  }
+
+  .guide-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* Badges Preview */
+  .badge {
+    display: inline-block;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    line-height: 1.35;
+    vertical-align: middle;
+  }
+
+  .badge-iiif {
+    background-color: #E7EEF5;
+    color: #1A3A5C;
+    border-color: #B9CDE0;
+    font-weight: 700;
+  }
+
+  .badge-unverified {
+    background-color: var(--status-mid-bg);
+    color: var(--status-mid-fg);
+    border-color: #DBC99F;
+    font-weight: 700;
+  }
+
+  .badge-warn {
+    background-color: var(--status-warn-bg);
+    color: var(--status-warn-fg);
+    border-color: #DFB5AE;
+    font-weight: 700;
+  }
+
+  /* FAQ Accordion */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .faq-item {
+    background-color: var(--bg-paper);
+    border: 1px solid var(--border-rule);
+    border-radius: var(--radius-sm);
+    padding: 0;
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    padding: 10px 14px;
+    font-weight: 700;
+    color: var(--bg-navy);
+    font-size: 14px;
+    list-style-position: outside;
+  }
+
+  .faq-item[open] summary {
+    border-bottom: 1px solid var(--border-rule);
+    background-color: var(--bg-parchment);
+  }
+
+  .faq-body {
+    padding: 10px 14px;
+    font-size: 13.5px;
+    line-height: 1.65;
+  }
+
+  .faq-body p {
+    margin: 0;
+  }
+
+  /* Buttons */
+  .action-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .btn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--bg-navy);
+    color: var(--bg-navy);
+    background-color: #FFFFFF;
+  }
+
+  .btn-link:hover {
+    background-color: var(--bg-navy);
+    color: #FFFFFF;
+  }
+
+  .btn-link.btn-primary {
+    background-color: var(--accent-green);
+    border-color: var(--accent-green);
+    color: #FFFFFF;
+  }
+
+  .btn-link.btn-primary:hover {
+    background-color: var(--accent-green-hover);
+  }
+
+  /* Footer */
+  .site-footer {
+    background-color: #1C2621;
+    color: #DED7C6;
+    border-top: 3px solid var(--accent-gold);
+    padding: 24px 16px 30px;
+    font-size: 13px;
+  }
+
+  .footer-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px 20px;
+  }
+
+  .footer-inner a {
+    color: #D9E5DC;
+  }
+
+  /* Responsive (Tested down to 375px) */
+  @media (max-width: 760px) {
+    .steps-grid,
+    .sample-pair,
+    .toc-list {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  @media (max-width: 680px) {
+    .axis-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .guide-table,
+    .guide-table thead,
+    .guide-table tbody,
+    .guide-table tr,
+    .guide-table td {
+      display: block;
+      width: 100%;
+    }
+    .guide-table thead {
+      display: none;
+    }
+    .guide-table tr {
+      border-bottom: 2px solid var(--border-strong);
+      padding: 6px 0;
+    }
+    .guide-table tr:last-child {
+      border-bottom: none;
+    }
+    .guide-table td {
+      border-bottom: 1px dashed var(--border-rule);
+      padding: 6px 11px;
+    }
+    .guide-table td::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--accent-green);
+      margin-bottom: 2px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 12px;
+    }
+    .manual-section {
+      padding: 15px 14px;
+    }
+    .toc-card {
+      padding: 13px 14px;
+    }
+  }
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="header-eyebrow">User Manual &middot; World Free Digital Library Directory</p>
+      <h1 class="site-title">使い方マニュアル｜世界の無料デジタル図書館・アーカイブ案内</h1>
+      <p class="site-subtitle">
+        「登録なしで読めるか」「日本からつながるか」「どう保存できるか」を迷わず読み解き、海外アーカイブを上手に検索するための取扱説明書です。
+      </p>
+      <div class="header-meta">
+        <span>データ基準: 2026年11月調査（2026年11月18日時点の公式案内確認）</span>
+        <span>収録数: 全40区分・サービス</span>
+      </div>
+    </div>
+    <nav class="site-nav" aria-label="サイトナビゲーション">
+      <ul class="nav-list">
+        <li><a href="index.html" class="nav-back">← 一覧・検索ページへ戻る</a></li>
+        <li><a href="index.html#directory">検索・絞り込みを使う</a></li>
+        <li><a href="index.html#methodology">4軸凡例表（正本）</a></li>
+        <li><a href="index.html#ndl-tiers">NDL 3区分比較表（正本）</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- 目次 -->
+    <section class="toc-card" aria-label="マニュアル目次">
+      <h2 class="toc-title">このマニュアルの目次</h2>
+      <ul class="toc-list">
+        <li><a href="#quick-start">1. このサイトでできること（3ステップの使い方）</a></li>
+        <li><a href="#axes">2. 4軸ラベル（R / J / D / T）の読み方</a></li>
+        <li><a href="#free-toggle">3. 「登録なしで全文が読めるものだけ表示」の意味</a></li>
+        <li><a href="#launcher">4. 現地検索ランチャーの使い方と「日本語で0件」対策</a></li>
+        <li><a href="#badges">5. 「IIIF対応」バッジの意味と Phase 2 計画</a></li>
+        <li><a href="#verification">6. 「追加検証中」バッジの意味とデータ調査日</a></li>
+        <li><a href="#ndl">7. 国立国会図書館（NDL）が3区分に分かれている理由</a></li>
+        <li><a href="#faq">8. よくある疑問（Q&amp;A）</a></li>
+      </ul>
+    </section>
+
+    <!-- 1. 3ステップの使い方 -->
+    <section id="quick-start" class="manual-section">
+      <h2>1. このサイトでできること（3ステップの使い方）</h2>
+      <p>
+        本サイトは、世界各国の国立図書館・デジタルアーカイブ（全40区分・サービス）について、<strong>「日本在住・現地図書館カードなし」</strong>の視点からアクセス実態を調べた実務ガイドです。単にリンクを並べるだけでなく、以下の3ステップで「目的に合い、実際に本文まで読める図書館」を探せます。
+      </p>
+
+      <div class="steps-grid">
+        <article class="step-card">
+          <span class="step-num">STEP 1</span>
+          <h3>読める館を絞り込む</h3>
+          <p>
+            まずは一覧上部の<strong>「登録なしで全文が読めるものだけ表示」</strong>トグルや、<strong>地域・時代・資料種別（書籍・新聞・写本・古地図・学術・ウェブ）</strong>で対象を絞ります。
+          </p>
+        </article>
+        <article class="step-card">
+          <span class="step-num">STEP 2</span>
+          <h3>4軸とバッジで実態を読む</h3>
+          <p>
+            各カードの<strong>R（登録）・J（日本閲覧）・D（保存）・T（型）</strong>とバッジを見て、「登録不要か」「リンク先依存か」「一部復旧中か」を事前に確認します。
+          </p>
+        </article>
+        <article class="step-card">
+          <span class="step-num">STEP 3</span>
+          <h3>現地検索ランチャーで飛ぶ</h3>
+          <p>
+            調べたい語句（海外館は<strong>英語・現地語推奨</strong>）をランチャーに入れると、URL仕様が確定済みの23アーカイブの検索結果へ1クリックで直接飛べます。
+          </p>
+        </article>
+      </div>
+
+      <div class="action-row">
+        <a class="btn-link btn-primary" href="index.html#directory">さっそくアーカイブを検索・絞り込む →</a>
+      </div>
+    </section>
+
+    <!-- 2. 4軸ラベルの読み方 -->
+    <section id="axes" class="manual-section">
+      <h2>2. 4軸ラベル（R / J / D / T）の読み方</h2>
+      <p>
+        デジタル図書館は「検索は無料だが本文は現地カード限定」「閲覧はできるが一括保存は不可」のように条件が複雑です。星や総合点では誤解を生むため、本サイトでは性質の異なる<strong>4つの独立した軸</strong>で表示しています。
+      </p>
+
+      <ul>
+        <li><strong>登録 R（Registration）：</strong> 利用開始に必要なハードル（<code>R0</code> 不要 → <code>R1</code> メールのみ → <code>R2</code> 本人確認・審査 → <code>R3</code> 居住・資格要件 → <code>R4</code> 館内・提携館端末のみ）。</li>
+        <li><strong>日本から閲覧 J（Japan Access）：</strong> 日本のIP・環境から本文が読めるか（<code>J3</code> PD全文が広く可 → <code>J2</code> PDのみ・年代等制限 → <code>J1</code> 検索・プレビュー中心 → <code>J0</code> 原則不可 ／ <code>J-</code> リンク先依存）。</li>
+        <li><strong>保存 D（Download）：</strong> PDF等で持ち帰れるか（<code>D3</code> 一括DL可 → <code>D2</code> 1ページ単位・透かし印刷・DRM貸出など条件付き → <code>D1</code> 閲覧のみ ／ <code>D-</code> リンク先依存）。</li>
+        <li><strong>型 T（Architecture Type）：</strong> 図書館自身がデータを保有しているか（<strong>直接</strong>）／ 直接と集約が混在（<strong>混合</strong>）／ 所蔵機関へのリンクを集約する検索窓口か（<strong>ポータル</strong>）。</li>
+      </ul>
+
+      <div class="callout good">
+        <strong class="callout-head">色分けの目安（4色マス）</strong>
+        緑色＝登録不要や一括DL可など制限が緩い ／ 黄土色＝年代制限・ページ単位保存など条件付き ／ 赤色＝館内限定・本人確認審査・検索のみ等 ／ 青色＝ポータル型（所蔵元ごとに異なるため <code>J-</code>・<code>D-</code> と表示）。
+      </div>
+
+      <div class="sample-pair">
+        <div class="sample-card">
+          <p class="sample-card-title">見方サンプル①：すぐ読めて保存もしやすい直接型</p>
+          <div class="axis-grid" aria-label="直接型の4軸表示サンプル">
+            <div class="axis-cell tone-good">
+              <div class="axis-head"><span class="axis-name">登録</span><span class="axis-code">R0</span></div>
+              <div class="axis-desc">不要</div>
+            </div>
+            <div class="axis-cell tone-good">
+              <div class="axis-head"><span class="axis-name">日本閲覧</span><span class="axis-code">J3</span></div>
+              <div class="axis-desc">PD全文可</div>
+            </div>
+            <div class="axis-cell tone-good">
+              <div class="axis-head"><span class="axis-name">保存</span><span class="axis-code">D3</span></div>
+              <div class="axis-desc">一括DL可</div>
+            </div>
+            <div class="axis-cell tone-good">
+              <div class="axis-head"><span class="axis-name">型</span><span class="axis-code">T</span></div>
+              <div class="axis-desc">直接保有</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sample-card">
+          <p class="sample-card-title">見方サンプル②：ポータル型（Europeana / DPLA 等）</p>
+          <div class="axis-grid" aria-label="ポータル型の4軸表示サンプル">
+            <div class="axis-cell tone-good">
+              <div class="axis-head"><span class="axis-name">登録</span><span class="axis-code">R0</span></div>
+              <div class="axis-desc">不要</div>
+            </div>
+            <div class="axis-cell tone-portal">
+              <div class="axis-head"><span class="axis-name">日本閲覧</span><span class="axis-code">J-</span></div>
+              <div class="axis-desc">リンク先依存</div>
+            </div>
+            <div class="axis-cell tone-portal">
+              <div class="axis-head"><span class="axis-name">保存</span><span class="axis-code">D-</span></div>
+              <div class="axis-desc">リンク先依存</div>
+            </div>
+            <div class="axis-cell tone-portal">
+              <div class="axis-head"><span class="axis-name">型</span><span class="axis-code">T</span></div>
+              <div class="axis-desc">ポータル</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        各コード（R0〜R4、J3〜J0・J-、D3〜D1・D-、T）の正確な定義一覧は、一覧ページの凡例表をご覧ください。
+      </p>
+      <div class="action-row">
+        <a class="btn-link" href="index.html#methodology">一覧ページの「4軸ラベルの凡例」を見る →</a>
+      </div>
+    </section>
+
+    <!-- 3. 「登録なしで全文が読めるものだけ表示」トグル -->
+    <section id="free-toggle" class="manual-section">
+      <h2>3. 「登録なしで全文が読めるものだけ表示」トグルの意味</h2>
+      <p>
+        検索パネル最上部の緑枠チェックボックスをONにすると、<strong>「R0（登録不要）」「直接保有または混合保有」「日本からパブリックドメイン（PD）等の本文が広く閲覧可能」</strong>の条件を満たすアーカイブだけを抽出します（2026年11月調査時点で全40件中 <strong>27件</strong>）。
+      </p>
+
+      <h3>トグルをONにすると除外されるもの（13件）</h3>
+      <ul>
+        <li><strong>ポータル型（7件）：</strong> Europeana、DDB、DPLA、NDLI、DigitalNZ、CORE / DOAJ / DOAB、BDPI。原ファイルを自分で持たず、リンク先の機関ごとに可否や登録条件が異なるため除外されます。</li>
+        <li><strong>要本人確認・要館内端末・提携館PC（3件）：</strong> NDL（個人送信限定＝<code>R2</code>・国内居住＆本人確認審査）、NDL（館内限定＝<code>R4</code>）、韓国国立中央図書館 NLK（著作権あり資料は提携館の指定PC＝<code>R4</code>）。</li>
+        <li><strong>復旧途上・日本からの無登録到達が限定的（3件）：</strong> British Library（サイバー攻撃後の段階復旧途上）、中国国家図書館 NLC（多くの全文データベースは登録・実名区分に依存）、ロシア NEB（日本からの到達性・実態の個別確認が未了かつ要注意扱い）。</li>
+      </ul>
+
+      <div class="callout">
+        <strong class="callout-head">ON時にも残る資料に関する注意</strong>
+        このトグルをONにした場合でも、<strong>年代制限付き・一部条件付き</strong>のアーカイブ（例：HathiTrust の米国刊行95年超前／米国外125年超前ルールや、Delpher の年代区分など）や、R0＋PD相当と整理されている一部の「追加検証中」アーカイブは表示対象に含まれます。最終的な閲覧・保存条件は各カードの「注意点・実態」欄をご確認ください。
+      </div>
+    </section>
+
+    <!-- 4. 現地検索ランチャーの使い方と注意点 -->
+    <section id="launcher" class="manual-section">
+      <h2>4. 現地アーカイブ横断検索ランチャーの使い方と注意点</h2>
+
+      <h3>まず区別したい「A欄」と「B欄」</h3>
+      <ul>
+        <li><strong>A. この一覧をキーワードで絞り込む（左側）：</strong> 本ガイド内の<strong>40枚の図書館カード</strong>から、「フランス」「新聞」「写本」「IIIF」などの言葉で該当する図書館を選び出す欄です。</li>
+        <li><strong>B. 現地アーカイブ横断検索ランチャー（右側）：</strong> あなたが本当に調べたい<strong>書名・著者名・人名・地名</strong>を入力し、各アーカイブのサイトへ直接検索クエリを飛ばす欄です。</li>
+      </ul>
+
+      <h3>ランチャーの基本操作</h3>
+      <ol>
+        <li>B欄に検索語を入力します（下のサンプルチップをクリックしても入力できます）。</li>
+        <li>URLパターンが公式仕様・動作確認で確定している <strong>23アーカイブ</strong> のカード下部に、緑色の「<strong>『○○』で現地検索 ↗</strong>」ボタンが現れます（ページ上部の「対応アーカイブの検索リンク一覧を開く」ボタンを押すと、対応館だけをまとめたリンク集も開けます）。</li>
+        <li>気になる館のボタンをクリックすると、新しいタブでその図書館の検索結果ページが開きます（ブラウザのポップアップブロックを防ぐため、23館を同時に一括オープンせず1件ずつ開く設計です）。</li>
+      </ol>
+      <p>
+        ※ SPA動的画面・認証・書架記号依存などで安定した直接検索URLを持たない<strong>17アーカイブ</strong>（DigiVatLib、ÖNB Digital、青空文庫、BNE Digital、NDLI、韓国NLK、中国NLC等）には推測で検索URLを作らず、「公式サイト ↗」からの案内にとどめています。
+      </p>
+
+      <div class="callout warn">
+        <strong class="callout-head">最重要の注意点：日本語キーワードは海外アーカイブで「0件」になりやすい</strong>
+        日本の図書館（NDLや青空文庫、日本語版Wikisource）とは異なり、海外の図書館目録（タイトル・著者名・件名・OCR全文）は<strong>現地語や英語</strong>で登録されています。<br>
+        そのため、日本に関する歴史資料・地図・写真・報道を探す場合でも、<strong>「日本」「明治」「東京」「長崎」といった日本語のまま入力すると、海外アーカイブ側では検索結果が0件になることがよくあります。</strong>
+      </div>
+
+      <h3>おすすめの言語選びとキーワード例</h3>
+      <p>
+        調べたいアーカイブの言語圏や国際共通語（英語）に言い換えて検索するのが基本です。英語・ローマ字をベースにしつつ、フランス語圏（Gallica）などでは現地語綴りも試すとヒット率が大きく上がります。
+      </p>
+
+      <div class="table-wrap">
+        <table class="guide-table">
+          <thead>
+            <tr>
+              <th>入力キーワード例</th>
+              <th>推奨する言語の考え方</th>
+              <th>向いているアーカイブ・調べものの例</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="入力キーワード例"><code>Japan</code></td>
+              <td data-label="推奨する言語の考え方">英語（国際標準）</td>
+              <td data-label="向いているアーカイブ・調べものの例">LOC、Internet Archive、HathiTrust、Trove、Europeana、DDB など英語圏・国際ポータル全般で日本関連書や新聞記事を広く探すとき。</td>
+            </tr>
+            <tr>
+              <td data-label="入力キーワード例"><code>Japon</code></td>
+              <td data-label="推奨する言語の考え方">フランス語（現地語）</td>
+              <td data-label="向いているアーカイブ・調べものの例">フランス国立図書館 <strong>Gallica</strong> で幕末〜明治の旅行記・浮世絵図版・仏語新聞を探すとき（スペイン語圏等では <code>Japón</code> も有効です）。</td>
+            </tr>
+            <tr>
+              <td data-label="入力キーワード例"><code>Meiji</code></td>
+              <td data-label="推奨する言語の考え方">ローマ字・英語表記</td>
+              <td data-label="向いているアーカイブ・調べものの例">明治期の日本紹介書、法令・博覧会資料、海外新聞の明治関連報道を欧米アーカイブから横断検索するとき。</td>
+            </tr>
+            <tr>
+              <td data-label="入力キーワード例"><code>Tokyo</code></td>
+              <td data-label="推奨する言語の考え方">ローマ字・国際地名</td>
+              <td data-label="向いているアーカイブ・調べものの例">東京の古写真・古地図・都市案内・海外紙報道を探すとき（※江戸〜幕末資料では <code>Yedo</code> / <code>Edo</code> 綴りも併せて有効）。</td>
+            </tr>
+            <tr>
+              <td data-label="入力キーワード例"><code>Nagasaki</code></td>
+              <td data-label="推奨する言語の考え方">ローマ字・国際地名</td>
+              <td data-label="向いているアーカイブ・調べものの例">オランダ王立図書館 <strong>Delpher</strong>（出島・蘭学・日蘭関係新聞）や、英米豪の19世紀新聞・宣教師記録を探すとき。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        ※ 日本語資料を NDL や日本語版 Wikisource で調べる場合は、日本語（例：<code>夏目漱石</code>、<code>明治</code>、<code>地図</code>）と英語・ローマ字を切り替えて併用してください。
+      </p>
+    </section>
+
+    <!-- 5. IIIFバッジ -->
+    <section id="badges" class="manual-section">
+      <h2>5. <span class="badge badge-iiif">IIIF対応</span> バッジの意味と Phase 2 計画</h2>
+      <p>
+        <strong>IIIF（International Image Interoperability Framework）</strong>とは、世界中の図書館や博物館が保有する高精細な写本・古地図・書籍画像を、共通の形式で配信・拡大・比較できるようにする国際規格です。
+      </p>
+      <ul>
+        <li><strong>v1（現在）の扱い：</strong> IIIFに対応し、公式仕様が確認できた <strong>14サービス</strong> に <code>IIIF対応</code> バッジを付け、カード内の青い枠（IIIF案内）でマニフェストURLの形式や公式ドキュメントへのリンクを案内しています。</li>
+        <li><strong>v1では案内表示のみ：</strong> 現在のバージョンでは<strong>サイト内にIIIFビューアは組み込んでいません</strong>（また、外部の汎用IIIFビューアサイトへの直接リンクも、保守性・外部依存回避のため設置していません）。</li>
+        <li><strong>Phase 2 予定：</strong> 複数の図書館の写本や地図を同じ画面で並べて拡大比較できる<strong>サイト内IIIFビューア</strong>（Mirador / Universal Viewer 等を用いた軽量な別ページ構成など）は、今後の <strong>Phase 2</strong> 計画として案内しています。</li>
+      </ul>
+      <div class="action-row">
+        <a class="btn-link" href="index.html#methodology">一覧ページの「IIIF・Phase 2 計画」を見る →</a>
+      </div>
+    </section>
+
+    <!-- 6. 追加検証中バッジとデータ基準日 -->
+    <section id="verification" class="manual-section">
+      <h2>6. <span class="badge badge-unverified">追加検証中</span> バッジの意味とデータ調査日</h2>
+      <p>
+        本サイトに掲載している全40件の評価・4軸ラベル・規模表記・AI要約訂正は、<strong>2026年11月調査（2026年11月18日時点の公式サイト・公式ヘルプのウェブ索引確認）</strong>に基づいています。各カードの規模欄では、出典元の発表年次が異なるため「2025年1月時点」「2024年9月時点」「2026年11月調査時点」のように時点を明記しています。
+      </p>
+      <p>
+        そのうち、公式サイトの枠組みや存在は確認できているものの、日本IPからの実ブラウザでの個別クリック検証（どこまで一括DLできるか、個別の検索URLパラメータや例外挙動の細部）がまだ完了していない <strong>8サービス</strong> には <span class="badge badge-unverified">追加検証中</span> バッジを付けています。
+      </p>
+      <ul>
+        <li>該当する8件：ポルトガル BNDigital、イタリア Internet Culturale、デンマーク王立図書館、チェコ Kramerius、ロシア NEB（<span class="badge badge-warn">要注意</span> 併記）、メキシコ BNDM、アルゼンチン BNMM、イベロアメリカ BDPI。</li>
+        <li>絞り込みパネルの「<strong>検証ステータス</strong>」セレクトから、「調査済みのみ」または「『追加検証中』のみ」を切り替えて表示できます。</li>
+      </ul>
+    </section>
+
+    <!-- 7. NDL 3区分ガイドへのポインタ -->
+    <section id="ndl" class="manual-section">
+      <h2>7. 日本の国立国会図書館（NDL）が3区分に分かれている理由</h2>
+      <p>
+        世の中の解説やAI要約では「国立国会図書館デジタルコレクションは無料で読める」「あるいは登録しないと読めない」と一括りに書かれがちですが、実際には<strong>所蔵資料1点ごとに公開レベルがまったく異なる</strong>ため、1枚のカードにまとめることができません。
+      </p>
+      <p>
+        本サイトでは利用者が誤解しないよう、NDL公式の区分に合わせて次の <strong>3つの独立カード</strong> に分けて収録しています：
+      </p>
+      <ol>
+        <li><strong>インターネット公開（<code>R0 / J3 / D3 / 直接</code>）：</strong> 世界中から誰でも・ログインなしで全文画像やPDFを利用できる区分。</li>
+        <li><strong>図書館・個人送信限定（<code>R2 / J3(国内限定) / D2 / 直接</code>）：</strong> 日本国内居住者の本登録（本人確認書類の審査あり）または承認図書館の端末向け。印刷用PDFには氏名・ID等の透かしが入り、<strong>海外在住者は対象外</strong>です。また出版社等の再調査により館内限定へ戻る場合があります。</li>
+        <li><strong>国立国会図書館内限定（<code>R4 / J0 / D2 / 直接</code>）：</strong> 東京本館・関西館・国際子ども図書館へ来館して館内端末を使う必要があります。</li>
+      </ol>
+      <div class="action-row">
+        <a class="btn-link" href="index.html#ndl-tiers">一覧ページの「NDL 3区分ガイド」詳細比較表を見る →</a>
+      </div>
+    </section>
+
+    <!-- 8. よくある疑問（Q&A） -->
+    <section id="faq" class="manual-section">
+      <h2>8. よくある疑問（Q&amp;A）</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Q. 現地検索ランチャーで検索したのに、海外の図書館で結果が0件になります</summary>
+          <div class="faq-body">
+            <p>
+              入力欄に日本語（例：「明治」「東京」「夏目漱石」）が入っていませんか？海外の図書館目録は英語や現地語で登録されていることが多いため、<code>Meiji</code> / <code>Tokyo</code> / <code>Japan</code> / <code>Japon</code> / <code>Nagasaki</code> のような英語・現地語・ローマ字に切り替えて再検索してみてください。
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Q. 「R0（登録不要）」なのに本文が読めない本があるのはなぜですか？</summary>
+          <div class="faq-body">
+            <p>
+              「R0」はアカウント作成が不要という意味であり、収録されている<strong>全資料がパブリックドメイン（PD）という意味ではありません</strong>。同じアーカイブ内でも、著作権が切れた古い資料は全文閲覧でき、比較的新しい資料は書誌検索やスニペット表示のみになることがあります（軸 <strong>J</strong> やカードの「注意点・実態」欄をご確認ください）。
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Q. ポータル型（Europeana / DPLA 等）が「リンク先依存（J- / D-）」になるのはなぜですか？</summary>
+          <div class="faq-body">
+            <p>
+              ポータル型は数百〜数千の図書館・博物館の目録をまとめて検索できる便利な窓口ですが、画像やPDFのファイル自体はリンク先の所蔵機関が持っています。そのため、リンク先によっては「登録不要で一括DL可」な資料もあれば、「閲覧のみ」「館内限定」の資料も混ざっており、サイト全体を一律の数値で評価できないためです。
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Q. 「現地検索」ボタンが出ないアーカイブがあるのはなぜですか？</summary>
+          <div class="faq-body">
+            <p>
+              SPA（クライアントサイド動的遷移）や書架記号・認証等により、確実な検索結果URLパターンが固定されていない17のアーカイブについては、推測でリンク切れURLを作らない方針としているためです。これらの館はカード内の「公式サイト ↗」から現地トップの検索欄をご利用ください。
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <div class="action-row">
+        <a class="btn-link btn-primary" href="index.html#directory">一覧・検索ページへ戻る →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>world-free-library &middot; 使い方マニュアル（静的HTML・外部CDN非依存） &middot; 最終検証データ基準: 2026-11-18</span>
+      <span><a href="index.html">トップ（一覧・検索ページ）へ戻る</a></span>
+    </div>
+  </footer>
+</body>
+</html>
