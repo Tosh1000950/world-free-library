@@ -1,0 +1,3305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>世界の無料デジタル図書館・アーカイブ案内 | 日本からの実態検証ガイド</title>
+<meta name="description" content="世界各国の国立図書館・デジタルアーカイブを「日本から・登録なしで・本文まで実際に読めるか」の4軸（登録R・日本から閲覧J・保存D・型T）で検証した日本語ガイド。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23182C25'/%3E%3Cpath d='M7 8h8c1.5 0 2 1 2 2v14c-.6-.6-1.4-1-2.5-1H7V8zm18 0h-8c-1.5 0-2 1-2 2v14c.6-.6 1.4-1 2.5-1H25V8z' fill='%23F7F4EC'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg-paper: #F7F4EC;
+    --bg-card: #FCFBF7;
+    --bg-parchment: #EFE9DA;
+    --bg-header: #182C25;
+    --bg-navy: #1E324A;
+    --accent-green: #1E3A2F;
+    --accent-green-hover: #142820;
+    --accent-gold: #8A6B2E;
+    --text-ink: #1F2421;
+    --text-muted: #4E5650;
+    --text-light: #F7F4EC;
+    --border-rule: #D6CEBE;
+    --border-strong: #B4A992;
+    --status-good-bg: #E5EFE8;
+    --status-good-fg: #184A2C;
+    --status-mid-bg: #F5EEDB;
+    --status-mid-fg: #6E4E12;
+    --status-warn-bg: #F6E5E2;
+    --status-warn-fg: #7D291C;
+    --status-portal-bg: #E7EEF5;
+    --status-portal-fg: #1E3A5F;
+    --font-serif: "Shippori Mincho", "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "Noto Serif JP", Georgia, serif;
+    --font-sans: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Meiryo", "Noto Sans JP", system-ui, -apple-system, sans-serif;
+    --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --max-w: 1160px;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-paper);
+    color: var(--text-ink);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  a {
+    color: var(--bg-navy);
+    text-underline-offset: 3px;
+  }
+  a:hover {
+    color: var(--accent-green);
+  }
+
+  .container {
+    width: 100%;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  /* Header & Reading Room Masthead */
+  .site-header {
+    background-color: var(--bg-header);
+    color: var(--text-light);
+    border-bottom: 3px solid var(--accent-gold);
+  }
+
+  .header-inner {
+    padding: 28px 16px 22px;
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  .header-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #D2C7AE;
+    margin: 0 0 8px;
+  }
+
+  .site-title {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(22px, 4.2vw, 34px);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.03em;
+  }
+
+  .site-subtitle {
+    margin: 10px 0 0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #E4DFD3;
+    max-width: 820px;
+  }
+
+  .header-meta {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    font-size: 12.5px;
+    color: #CFC7B4;
+  }
+
+  /* Top Anchor Navigation */
+  .site-nav {
+    background-color: #12211C;
+    border-bottom: 1px solid #2A453B;
+  }
+
+  .nav-list {
+    list-style: none;
+    margin: 0 auto;
+    padding: 8px 16px;
+    max-width: var(--max-w);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+  }
+
+  .nav-list a {
+    color: #EAE4D7;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    display: inline-block;
+  }
+
+  .nav-list a:hover,
+  .nav-list a:focus-visible {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+    text-decoration: underline;
+  }
+
+  /* Main Sections */
+  main {
+    padding-bottom: 56px;
+  }
+
+  .section-block {
+    padding: 32px 0 12px;
+  }
+
+  .section-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(19px, 3vw, 24px);
+    font-weight: 700;
+    margin: 0 0 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent-green);
+    color: var(--accent-green);
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+  }
+
+  .section-heading-sub {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  .section-lead {
+    margin: 8px 0 18px;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  /* Summary Notice Banner */
+  .intro-principles {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-rule);
+    border-left: 4px solid var(--bg-navy);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    margin-top: 22px;
+  }
+
+  .intro-principles h2 {
+    margin: 0 0 8px;
+    font-family: var(--font-serif);
+    font-size: 16px;
+    color: var(--bg-navy);
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px 18px;
+    font-size: 13.5px;
+    margin: 0;
+  }
+
+  .intro-item {
+    margin: 0;
+    color: var(--text-ink);
+  }
+
+  .intro-item strong {
+    color: var(--accent-green);
+  }
+
+  /* Library Gallery (Unified Aspect Ratio 16:10) */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .gallery-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-rule);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gallery-frame {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background-color: #DCD6C8;
+    border-bottom: 1px solid var(--border-rule);
+  }
+
+  .gallery-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .gallery-caption {
+    padding: 9px 11px;
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+
+  .gallery-title {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 13.5px;
+    color: var(--text-ink);
+    margin: 0 0 3px;
+  }
+
+  .gallery-credit {
+    color: var(--text-muted);
+    font-size: 11.5px;
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+
+  /* Controls & Search Launcher Panel */
+  .control-panel {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    padding: 18px;
+    margin-bottom: 18px;
+  }
+
+  .dual-search-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .search-box {
+    background-color: var(--bg-paper);
+    border: 1px solid var(--border-rule);
+    border-radius: var(--radius-md);
+    padding: 13px 14px;
+  }
+
+  .search-box.launcher-box {
+    background-color: #F2EFE6;
+    border-color: #B9C4BC;
+  }
+
+  .search-label {
+    display: block;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 14.5px;
+    color: var(--accent-green);
+    margin-bottom: 4px;
+  }
+
+  .search-help {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin: 0 0 8px;
+    line-height: 1.45;
+  }
+
+  .input-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .text-input {
+    width: 100%;
+    min-width: 0;
+    padding: 9px 11px;
+    font-size: 14px;
+    font-family: var(--font-sans);
+    color: var(--text-ink);
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+  }
+
+  .text-input:focus {
+    outline: 2px solid var(--accent-green);
+    outline-offset: 1px;
+    border-color: var(--accent-green);
+  }
+
+  .btn-clear-sm {
+    flex-shrink: 0;
+    padding: 8px 11px;
+    font-size: 12.5px;
+    background-color: #EFE9DA;
+    color: var(--text-ink);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-family: var(--font-sans);
+  }
+
+  .btn-clear-sm:hover {
+    background-color: #E3DAC6;
+  }
+
+  .launcher-status {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--bg-navy);
+    min-height: 18px;
+  }
+
+  .sample-queries {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+    margin-top: 7px;
+    font-size: 11.5px;
+    color: var(--text-muted);
+  }
+
+  .sample-chip {
+    padding: 2px 8px;
+    font-size: 11.5px;
+    font-family: var(--font-sans);
+    background-color: #FFFFFF;
+    color: var(--bg-navy);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+  }
+
+  .sample-chip:hover {
+    background-color: var(--bg-navy);
+    color: #FFFFFF;
+  }
+
+  /* Primary Toggle: Free Full-Text Without Registration */
+  .primary-toggle-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background-color: var(--bg-parchment);
+    border: 2px solid var(--accent-green);
+    border-radius: var(--radius-md);
+    padding: 12px 15px;
+    margin-bottom: 16px;
+  }
+
+  .toggle-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--accent-green);
+    user-select: none;
+  }
+
+  .toggle-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    accent-color: var(--accent-green);
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  .toggle-sub {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* Filter Selectors Grid */
+  .filters-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px 12px;
+    margin-bottom: 14px;
+  }
+
+  .filter-field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+
+  .filter-select {
+    width: 100%;
+    min-width: 0;
+    padding: 7px 9px;
+    font-size: 13.5px;
+    font-family: var(--font-sans);
+    color: var(--text-ink);
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+  }
+
+  .filter-select:focus {
+    outline: 2px solid var(--accent-green);
+    outline-offset: 1px;
+  }
+
+  .genre-pills-wrap {
+    margin-bottom: 14px;
+  }
+
+  .genre-pills-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pill-btn {
+    padding: 5px 11px;
+    font-size: 12.5px;
+    font-family: var(--font-sans);
+    background-color: var(--bg-paper);
+    color: var(--text-ink);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+  }
+
+  .pill-btn:hover {
+    background-color: var(--bg-parchment);
+  }
+
+  .pill-btn.active {
+    background-color: var(--accent-green);
+    color: #FFFFFF;
+    border-color: var(--accent-green);
+    font-weight: 700;
+  }
+
+  /* Results Bar */
+  .results-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-rule);
+    font-size: 13.5px;
+  }
+
+  .results-count {
+    font-weight: 700;
+    color: var(--accent-green);
+  }
+
+  .results-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-reset {
+    padding: 6px 12px;
+    font-size: 12.5px;
+    font-family: var(--font-sans);
+    background-color: transparent;
+    color: var(--bg-navy);
+    border: 1px solid var(--bg-navy);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+  }
+
+  .btn-reset:hover {
+    background-color: var(--bg-navy);
+    color: #FFFFFF;
+  }
+
+  /* Launcher Quick Drawer */
+  .launcher-drawer {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-left: 4px solid var(--accent-green);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    margin-bottom: 18px;
+  }
+
+  .launcher-drawer-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .launcher-drawer-title {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--accent-green);
+    margin: 0;
+  }
+
+  .launcher-links-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 8px;
+  }
+
+  .launcher-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    font-size: 12.5px;
+    background-color: var(--bg-paper);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    color: var(--bg-navy);
+    text-decoration: none;
+  }
+
+  .launcher-chip:hover {
+    background-color: var(--accent-green);
+    border-color: var(--accent-green);
+    color: #FFFFFF;
+  }
+
+  /* Archive Cards Grid */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .archive-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    min-width: 0;
+  }
+
+  .archive-card.card-warning {
+    border-left: 4px solid var(--status-warn-fg);
+  }
+
+  .archive-card.card-portal {
+    border-top: 3px solid var(--bg-navy);
+  }
+
+  .archive-card.card-direct-free {
+    border-top: 3px solid var(--accent-green);
+  }
+
+  .card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .card-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .card-title {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--text-ink);
+    overflow-wrap: anywhere;
+  }
+
+  .card-country {
+    flex-shrink: 0;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 8px;
+    background-color: var(--bg-parchment);
+    color: var(--text-ink);
+    border: 1px solid var(--border-rule);
+    border-radius: var(--radius-sm);
+  }
+
+  .card-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 11.5px;
+    padding: 2px 7px;
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    line-height: 1.35;
+  }
+
+  .badge-default {
+    background-color: #EFECE3;
+    color: var(--text-muted);
+    border-color: var(--border-rule);
+  }
+
+  .badge-iiif {
+    background-color: #E7EEF5;
+    color: #1A3A5C;
+    border-color: #B9CDE0;
+    font-weight: 700;
+  }
+
+  .badge-warn {
+    background-color: var(--status-warn-bg);
+    color: var(--status-warn-fg);
+    border-color: #DFB5AE;
+    font-weight: 700;
+  }
+
+  .badge-unverified {
+    background-color: var(--status-mid-bg);
+    color: var(--status-mid-fg);
+    border-color: #DBC99F;
+    font-weight: 700;
+  }
+
+  /* 4-Axis Table inside Card */
+  .axis-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .axis-cell {
+    background-color: var(--bg-paper);
+    border: 1px solid var(--border-rule);
+    border-radius: var(--radius-sm);
+    padding: 6px 7px;
+    min-width: 0;
+  }
+
+  .axis-cell.tone-good {
+    background-color: var(--status-good-bg);
+    border-color: #BED6C6;
+  }
+
+  .axis-cell.tone-mid {
+    background-color: var(--status-mid-bg);
+    border-color: #DFCEA6;
+  }
+
+  .axis-cell.tone-warn {
+    background-color: var(--status-warn-bg);
+    border-color: #E0B8B2;
+  }
+
+  .axis-cell.tone-portal {
+    background-color: var(--status-portal-bg);
+    border-color: #B8CBE0;
+  }
+
+  .axis-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 2px;
+  }
+
+  .axis-name {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 700;
+  }
+
+  .axis-code {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-ink);
+  }
+
+  .axis-cell.tone-good .axis-code { color: var(--status-good-fg); }
+  .axis-cell.tone-mid .axis-code { color: var(--status-mid-fg); }
+  .axis-cell.tone-warn .axis-code { color: var(--status-warn-fg); }
+  .axis-cell.tone-portal .axis-code { color: var(--status-portal-fg); }
+
+  .axis-desc {
+    font-size: 11.5px;
+    line-height: 1.35;
+    color: var(--text-ink);
+    overflow-wrap: anywhere;
+  }
+
+  /* Card Body Details */
+  .card-meta-line {
+    font-size: 13px;
+    background-color: #F4EFE3;
+    padding: 7px 10px;
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--accent-gold);
+  }
+
+  .card-meta-line strong {
+    color: var(--text-ink);
+  }
+
+  .card-body {
+    font-size: 13px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .card-body p {
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .card-label {
+    font-weight: 700;
+    color: var(--accent-green);
+  }
+
+  .card-label.warn-label {
+    color: var(--status-warn-fg);
+  }
+
+  .iiif-box {
+    font-size: 12px;
+    background-color: #EFF4F8;
+    border: 1px solid #C8D7E4;
+    border-radius: var(--radius-sm);
+    padding: 6px 9px;
+    overflow-wrap: anywhere;
+  }
+
+  .iiif-box code {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    word-break: break-all;
+  }
+
+  /* Card Footer Links */
+  .card-footer {
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-rule);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    align-items: center;
+  }
+
+  .btn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 11px;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--bg-navy);
+    color: var(--bg-navy);
+    background-color: #FFFFFF;
+  }
+
+  .btn-link:hover {
+    background-color: var(--bg-navy);
+    color: #FFFFFF;
+  }
+
+  .btn-link.btn-search {
+    background-color: var(--accent-green);
+    border-color: var(--accent-green);
+    color: #FFFFFF;
+  }
+
+  .btn-link.btn-search:hover {
+    background-color: var(--accent-green-hover);
+  }
+
+  .btn-link.btn-secondary {
+    border-color: var(--border-strong);
+    color: var(--text-ink);
+    font-weight: 400;
+    background-color: var(--bg-paper);
+  }
+
+  .btn-link.btn-secondary:hover {
+    background-color: var(--bg-parchment);
+  }
+
+  .no-search-note {
+    font-size: 11.5px;
+    color: var(--text-muted);
+  }
+
+  .empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    background-color: var(--bg-card);
+    border: 1px dashed var(--border-strong);
+    border-radius: var(--radius-md);
+    padding: 36px 16px;
+  }
+
+  /* Reference Tables (NDL 3 tiers, AI Corrections, 4-Axis Legend) */
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 11px 13px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border-rule);
+  }
+
+  .data-table thead th {
+    background-color: var(--bg-parchment);
+    font-family: var(--font-serif);
+    font-weight: 700;
+    color: var(--accent-green);
+    border-bottom: 2px solid var(--border-strong);
+  }
+
+  .data-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .callout-box {
+    background-color: var(--bg-parchment);
+    border: 1px solid var(--border-strong);
+    border-left: 4px solid var(--status-warn-fg);
+    border-radius: var(--radius-md);
+    padding: 13px 16px;
+    margin-top: 14px;
+    font-size: 13.5px;
+  }
+
+  .callout-box.info-box {
+    border-left-color: var(--bg-navy);
+    background-color: #ECEFE9;
+  }
+
+  .callout-box h3 {
+    margin: 0 0 6px;
+    font-family: var(--font-serif);
+    font-size: 15.5px;
+    color: var(--text-ink);
+  }
+
+  .callout-box p,
+  .callout-box ul {
+    margin: 4px 0 0;
+  }
+
+  /* AI Corrections Grid */
+  .ai-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .ai-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+  }
+
+  .ai-card h3 {
+    margin: 0 0 8px;
+    font-family: var(--font-serif);
+    font-size: 15.5px;
+    color: var(--bg-navy);
+    border-bottom: 1px solid var(--border-rule);
+    padding-bottom: 5px;
+  }
+
+  .ai-wrong {
+    background-color: var(--status-warn-bg);
+    color: var(--status-warn-fg);
+    padding: 6px 9px;
+    border-radius: var(--radius-sm);
+    font-size: 12.5px;
+    margin-bottom: 8px;
+  }
+
+  .ai-fact {
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .two-col-notes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 16px;
+  }
+
+  .note-panel {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    padding: 15px 17px;
+    font-size: 13.5px;
+  }
+
+  .note-panel h3 {
+    margin: 0 0 8px;
+    font-family: var(--font-serif);
+    font-size: 16px;
+    color: var(--accent-green);
+  }
+
+  .note-panel ul,
+  .note-panel ol {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .note-panel li + li {
+    margin-top: 5px;
+  }
+
+  /* Footer */
+  .site-footer {
+    background-color: #1C2621;
+    color: #DED7C6;
+    border-top: 3px solid var(--accent-gold);
+    padding: 28px 16px 36px;
+    font-size: 13px;
+  }
+
+  .footer-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .footer-inner h2 {
+    font-family: var(--font-serif);
+    font-size: 15.5px;
+    color: #FFFFFF;
+    margin: 0 0 8px;
+  }
+
+  .footer-inner a {
+    color: #D9E5DC;
+  }
+
+  .credit-list {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .footer-bottom {
+    max-width: var(--max-w);
+    margin: 18px auto 0;
+    padding-top: 14px;
+    border-top: 1px solid #35463E;
+    font-size: 12px;
+    color: #B4AC9B;
+  }
+
+  /* Responsive Breakpoints (Tested down to 375px) */
+  @media (max-width: 960px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .filters-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .cards-grid,
+    .ai-grid,
+    .two-col-notes,
+    .footer-inner {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  @media (max-width: 680px) {
+    .dual-search-row {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .axis-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .data-table,
+    .data-table thead,
+    .data-table tbody,
+    .data-table tr,
+    .data-table td {
+      display: block;
+      width: 100%;
+    }
+    .data-table thead {
+      display: none;
+    }
+    .data-table tr {
+      border-bottom: 2px solid var(--border-strong);
+      padding: 8px 0;
+    }
+    .data-table tr:last-child {
+      border-bottom: none;
+    }
+    .data-table td {
+      border-bottom: 1px dashed var(--border-rule);
+      padding: 7px 12px;
+    }
+    .data-table td::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--accent-green);
+      margin-bottom: 2px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .gallery-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .filters-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .container {
+      padding: 0 12px;
+    }
+    .control-panel {
+      padding: 13px;
+    }
+    .archive-card {
+      padding: 13px;
+    }
+  }
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="header-eyebrow">World Free Digital Library Directory &middot; Verified from Japan</p>
+      <h1 class="site-title">世界の無料デジタル図書館・アーカイブ案内</h1>
+      <p class="site-subtitle">
+        「無料で検索できる」と「日本から・登録なしで・本文まで読める」は別問題。各国の国立図書館や主要アーカイブを、<strong>登録 R &times; 日本から閲覧 J &times; 保存 D &times; 型 T</strong> の4軸で検証した実務ガイドです。
+      </p>
+      <div class="header-meta">
+        <span>検証基準日: 2026年11月18日（公式サイト・公式ヘルプのウェブ索引確認に基づく）</span>
+        <span>利用者視点: 日本在住・現地図書館カードなし</span>
+        <span>収録: 全40区分・サービス</span>
+      </div>
+    </div>
+    <nav class="site-nav" aria-label="ページ内ナビゲーション">
+      <ul class="nav-list">
+        <li><a href="#gallery">世界の図書館風景</a></li>
+        <li><a href="#directory">アーカイブ検索・絞り込み</a></li>
+        <li><a href="#ndl-tiers">NDL 3区分ガイド</a></li>
+        <li><a href="#ai-corrections">AI要約の誤り訂正</a></li>
+        <li><a href="#methodology">4軸評価とIIIF・Phase 2</a></li>
+        <li><a href="#credits">出典・画像クレジット</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- 調査の大前提 -->
+    <section class="intro-principles" aria-label="本サイトの基本方針">
+      <h2>この案内の見方（従来のリンク集との違い）</h2>
+      <div class="intro-grid">
+        <p class="intro-item"><strong>1. アクセス実態の4軸評価：</strong> 登録の重さ（R0〜R4）、日本からの閲覧可否（J3〜J0）、保存方法（D3〜D1）、直接保有かポータルか（T）を併記し、星や総合点は付けません。</p>
+        <p class="intro-item"><strong>2. ポータルは「リンク先依存」：</strong> Europeana・DDB・DPLA・DigitalNZ・NDLI等は原ファイルを保有しないため、J・Dに数値を付けず「リンク先依存」と誠実に表示します。</p>
+        <p class="intro-item"><strong>3. 現地検索ランチャー（v1）：</strong> 検索したい語句を入れると、URL仕様が確実なアーカイブへ直接検索結果を飛ばせます（不確実なものは推測せず通常リンクとします）。</p>
+        <p class="intro-item"><strong>4. IIIF対応の明示：</strong> 高精細画像規格 IIIF に対応し、公式案内があるサービスにはバッジとマニフェスト取得先を掲載しています。</p>
+      </div>
+    </section>
+
+    <!-- 世界の図書館ギャラリー -->
+    <section id="gallery" class="section-block">
+      <h2 class="section-heading">
+        世界の国立・代表図書館の閲覧室
+        <span class="section-heading-sub">Wikimedia Commons のオープンライセンス写真（16:10 統一表示）</span>
+      </h2>
+      <div class="gallery-grid">
+        <figure class="gallery-card" style="margin:0;">
+          <div class="gallery-frame">
+            <img src="assets/img/ndl-tokyo.jpg" alt="国立国会図書館 東京本館の外観">
+          </div>
+          <figcaption class="gallery-caption">
+            <p class="gallery-title">国立国会図書館 東京本館（日本）</p>
+            <p class="gallery-credit">Photo: Peacearth / <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a> (<a href="https://commons.wikimedia.org/wiki/File:Tokyo_Main_Library_of_the_National_Diet_Library_20190202.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>)</p>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-card" style="margin:0;">
+          <div class="gallery-frame">
+            <img src="assets/img/bnf-richelieu.jpg" alt="フランス国立図書館リシュリュー館 ラブルースト閲覧室">
+          </div>
+          <figcaption class="gallery-caption">
+            <p class="gallery-title">フランス国立図書館 BnF リシュリュー館（フランス）</p>
+            <p class="gallery-credit">Photo: vincent desjardins / <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener noreferrer">CC BY 2.0</a> (<a href="https://commons.wikimedia.org/wiki/File:Biblioth%C3%A8que_nationale_de_France_-_Site_Richelieu_(2012).jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>)</p>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-card" style="margin:0;">
+          <div class="gallery-frame">
+            <img src="assets/img/bl-stpancras.jpg" alt="大英図書館 セント・パンクラス館の外観">
+          </div>
+          <figcaption class="gallery-caption">
+            <p class="gallery-title">大英図書館 British Library（英国）</p>
+            <p class="gallery-credit">Photo: Patche99z / <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a> (<a href="https://commons.wikimedia.org/wiki/File:British_Library_%2B_St_Pancras_7527-31hug.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>)</p>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-card" style="margin:0;">
+          <div class="gallery-frame">
+            <img src="assets/img/loc-reading-room.jpg" alt="米国議会図書館 ジェファーソン館 中央閲覧室">
+          </div>
+          <figcaption class="gallery-caption">
+            <p class="gallery-title">米国議会図書館 中央閲覧室（米国）</p>
+            <p class="gallery-credit">Photo: Carol M. Highsmith / Public Domain (<a href="https://commons.wikimedia.org/wiki/File:LOC_Main_Reading_Room_Highsmith.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>)</p>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-card" style="margin:0;">
+          <div class="gallery-frame">
+            <img src="assets/img/onb-prunksaal.jpg" alt="オーストリア国立図書館 プルンクザール（大広間）">
+          </div>
+          <figcaption class="gallery-caption">
+            <p class="gallery-title">オーストリア国立図書館 プルンクザール（オーストリア）</p>
+            <p class="gallery-credit">Photo: Oke / <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a> (<a href="https://commons.wikimedia.org/wiki/File:Wien_Prunksaal_Oesterreichische_Nationalbibliothek.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>)</p>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-card" style="margin:0;">
+          <div class="gallery-frame">
+            <img src="assets/img/vatican-salone.jpg" alt="バチカン図書館 システィーナの間">
+          </div>
+          <figcaption class="gallery-caption">
+            <p class="gallery-title">バチカン図書館 システィーナの間（バチカン）</p>
+            <p class="gallery-credit">Photo: Jean-Pol GRANDMONT / <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a> (<a href="https://commons.wikimedia.org/wiki/File:0_Salone_Sistine_-_Biblioteca_apostolica_Vaticana_(1).JPG" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>)</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 検索・絞り込み & 現地検索ランチャー -->
+    <section id="directory" class="section-block">
+      <h2 class="section-heading">
+        アーカイブ検索・4軸絞り込み・現地検索ランチャー
+        <span class="section-heading-sub">地域 &times; 時代 &times; 資料種別 &times; 4軸ラベルで抽出</span>
+      </h2>
+
+      <div class="control-panel">
+        <div class="dual-search-row">
+          <div class="search-box">
+            <label for="filter-keyword" class="search-label">A. この一覧をキーワードで絞り込む</label>
+            <p class="search-help">サービス名、国名、言語、分野（新聞・写本・地図・学術・Open Library 等）で一覧を絞り込みます。</p>
+            <div class="input-row">
+              <input id="filter-keyword" class="text-input" type="search" placeholder="例: フランス / 新聞 / 写本 / IIIF / 中国" autocomplete="off">
+              <button id="clear-filter-kw" class="btn-clear-sm" type="button">消去</button>
+            </div>
+          </div>
+
+          <div class="search-box launcher-box">
+            <label for="launcher-query" class="search-label">B. 現地アーカイブ横断検索ランチャー（v1）</label>
+            <p class="search-help">調べたい書名・著者名・地名を入れると、対応カードのボタンから各アーカイブの検索結果へ直接飛べます。</p>
+            <div class="input-row">
+              <input id="launcher-query" class="text-input" type="search" placeholder="例: Natsume Soseki / Mozart / Tokyo / 地図" autocomplete="off">
+              <button id="clear-launcher-kw" class="btn-clear-sm" type="button">消去</button>
+            </div>
+            <div class="sample-queries">
+              <span>試す：</span>
+              <button type="button" class="sample-chip" data-sample="Natsume Soseki">Natsume Soseki</button>
+              <button type="button" class="sample-chip" data-sample="Mozart">Mozart</button>
+              <button type="button" class="sample-chip" data-sample="Tokyo">Tokyo</button>
+              <button type="button" class="sample-chip" data-sample="地図">地図</button>
+            </div>
+            <div id="launcher-status" class="launcher-status" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <!-- 最重要トグル -->
+        <div class="primary-toggle-bar">
+          <label class="toggle-label" for="toggle-free-fulltext">
+            <input id="toggle-free-fulltext" type="checkbox">
+            <span>
+              登録なしで全文が読めるものだけ表示（R0・直接／混合保有・PD本文可）
+              <span class="toggle-sub">ポータル（リンク先依存）・要審査/提携館端末・復旧/到達障害中（BL・ロシアNEB・中国NLC中心部）を除外します。追加検証中や年代制限付きのPD資料は含まれます。</span>
+            </span>
+          </label>
+        </div>
+
+        <!-- 直感軸：資料種別（ジャンル） -->
+        <div class="genre-pills-wrap">
+          <span class="genre-pills-label">資料種別（得意分野）</span>
+          <div class="pill-group" id="genre-pills" role="group" aria-label="資料種別フィルタ">
+            <button type="button" class="pill-btn active" data-genre="all">すべて</button>
+            <button type="button" class="pill-btn" data-genre="books">書籍・古典</button>
+            <button type="button" class="pill-btn" data-genre="newspapers">新聞・雑誌</button>
+            <button type="button" class="pill-btn" data-genre="manuscripts">写本・古文書</button>
+            <button type="button" class="pill-btn" data-genre="maps_images">古地図・図像</button>
+            <button type="button" class="pill-btn" data-genre="academic">学術・博士論文</button>
+            <button type="button" class="pill-btn" data-genre="web_media">ウェブ・録音映像</button>
+          </div>
+        </div>
+
+        <!-- 地域・時代・4軸セレクト -->
+        <div class="filters-grid">
+          <div class="filter-field">
+            <label for="filter-region">地域</label>
+            <select id="filter-region" class="filter-select">
+              <option value="all">すべて</option>
+              <option value="jp">日本</option>
+              <option value="asia">アジア（東アジア・南アジア）</option>
+              <option value="europe">欧州（EU・各国）</option>
+              <option value="north_america">北米（米国・カナダ）</option>
+              <option value="latin_america">中南米・イベロアメリカ</option>
+              <option value="oceania">オセアニア（豪・NZ）</option>
+              <option value="global">国際・多地域</option>
+            </select>
+          </div>
+
+          <div class="filter-field">
+            <label for="filter-era">強い時代</label>
+            <select id="filter-era" class="filter-select">
+              <option value="all">すべて</option>
+              <option value="pre19">中世〜近世（〜18世紀）</option>
+              <option value="c19">19世紀</option>
+              <option value="c20early">20世紀前半（〜1950年代頃）</option>
+              <option value="modern">現代・学術・ウェブ</option>
+            </select>
+          </div>
+
+          <div class="filter-field">
+            <label for="filter-r">登録 R</label>
+            <select id="filter-r" class="filter-select">
+              <option value="all">すべて</option>
+              <option value="R0">R0 不要（登録なしで利用可）</option>
+              <option value="R1">R1 無料・メールのみ</option>
+              <option value="R2">R2 本人確認・審査あり</option>
+              <option value="R3">R3 資格・居住要件あり</option>
+              <option value="R4">R4 館内・提携館端末のみ</option>
+            </select>
+          </div>
+
+          <div class="filter-field">
+            <label for="filter-t">型 T</label>
+            <select id="filter-t" class="filter-select">
+              <option value="all">すべて</option>
+              <option value="direct">直接保有（自らファイル保持）</option>
+              <option value="portal">ポータル（集約・リンク先依存）</option>
+              <option value="hybrid">混合（直接＋ポータル／提携館）</option>
+            </select>
+          </div>
+
+          <div class="filter-field">
+            <label for="filter-j">日本から閲覧 J</label>
+            <select id="filter-j" class="filter-select">
+              <option value="all">すべて</option>
+              <option value="J3">J3 PD全文が広く読める</option>
+              <option value="J2">J2 PDのみ・年代/対象制限</option>
+              <option value="J1">J1 検索・プレビュー・一部中心</option>
+              <option value="J0">J0 原則不可（館内限定等）</option>
+              <option value="J-">J- リンク先依存（ポータル）</option>
+            </select>
+          </div>
+
+          <div class="filter-field">
+            <label for="filter-d">保存 D</label>
+            <select id="filter-d" class="filter-select">
+              <option value="all">すべて</option>
+              <option value="D3">D3 PDF/EPUB等で一括DL可</option>
+              <option value="D2">D2 条件付き（1ページ・印刷・DRM等）</option>
+              <option value="D1">D1 閲覧のみ（原則DL不可）</option>
+              <option value="D-">D- リンク先依存（ポータル）</option>
+            </select>
+          </div>
+
+          <div class="filter-field">
+            <label for="filter-iiif">IIIF対応</label>
+            <select id="filter-iiif" class="filter-select">
+              <option value="all">すべて</option>
+              <option value="yes">IIIF対応のみ</option>
+            </select>
+          </div>
+
+          <div class="filter-field">
+            <label for="filter-verify">検証ステータス</label>
+            <select id="filter-verify" class="filter-select">
+              <option value="all">すべて</option>
+              <option value="verified">調査済みのみ（追加検証中を除く）</option>
+              <option value="unverified">「追加検証中」のみ</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="results-bar">
+          <div id="results-count" class="results-count" aria-live="polite">該当 40 件 / 全 40 件</div>
+          <div class="results-actions">
+            <button id="toggle-launcher-drawer" class="btn-reset" type="button">対応アーカイブの検索リンク一覧を開く</button>
+            <button id="reset-all-filters" class="btn-reset" type="button">条件をすべてリセット</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 現地検索ランチャー クイック一覧（開閉可能） -->
+      <div id="launcher-drawer" class="launcher-drawer" hidden>
+        <div class="launcher-drawer-head">
+          <h3 class="launcher-drawer-title">現地検索ランチャー対応アーカイブ一覧（現在表示中のもの）</h3>
+          <button id="close-launcher-drawer" class="btn-clear-sm" type="button">閉じる</button>
+        </div>
+        <p class="search-help" style="margin:0;">
+          検索語を入力した状態で各アーカイブをクリックすると、新しいタブで直接検索結果を開きます（ブラウザのポップアップブロックを避けるため、1件ずつ開く方式です）。URLパターンが不定なサービスは推測実装せず、カード内の公式サイトリンクのみとしています。
+        </p>
+        <div id="launcher-links-grid" class="launcher-links-grid"></div>
+      </div>
+
+      <!-- カード一覧 -->
+      <div id="cards-grid" class="cards-grid"></div>
+    </section>
+
+    <!-- NDL 3区分セクション -->
+    <section id="ndl-tiers" class="section-block">
+      <h2 class="section-heading">
+        日本の国立国会図書館（NDL）3区分ガイド
+        <span class="section-heading-sub">「全所蔵が自宅で読める」ではない・1件にまとめず区分別で確認</span>
+      </h2>
+      <p class="section-lead">
+        国立国会図書館デジタルコレクション（<a href="https://dl.ndl.go.jp/" target="_blank" rel="noopener noreferrer">dl.ndl.go.jp</a>）の資料は、1点ごとに以下のいずれかの公開区分に分かれており、検索結果の表示で判別します。
+      </p>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>区分</th>
+              <th>誰が・どこで読めるか</th>
+              <th>手続き</th>
+              <th>ダウンロード / 印刷</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="区分"><strong>インターネット公開</strong><br><span class="badge badge-default">R0 / J3 / D3 / 直接</span></td>
+              <td data-label="誰が・どこで読めるか">世界中・誰でも・ログインなしで全文画像を閲覧できます。</td>
+              <td data-label="手続き">不要。</td>
+              <td data-label="ダウンロード / 印刷">閲覧可。資料によりPDF等のダウンロードや印刷が可能です。</td>
+            </tr>
+            <tr>
+              <td data-label="区分"><strong>図書館・個人送信限定<br>（送信サービスで閲覧可能）</strong><br><span class="badge badge-default">R2 / J3(国内限定) / D2 / 直接</span></td>
+              <td data-label="誰が・どこで読めるか">(a) 図書館送信：承認された公共・大学図書館等の指定端末。<br>(b) 個人送信：<strong>日本国内に居住する</strong>登録利用者（本登録）が自宅端末で閲覧（2022年5月19日開始／令和3年著作権法改正・法31条に基づく絶版等入手困難資料が対象）。</td>
+              <td data-label="手続き">本登録：運転免許証・マイナンバーカード等の本人確認書類の画像アップロード等で申請し、審査を待つ必要があります（即時ではなく、利用体験記では「5日前後」の報告がありますが、公式に一律の日数保証はありません）。簡易登録（メールのみ）では個人送信は使えず、登録後に利用規約への同意が必要です。</td>
+              <td data-label="ダウンロード / 印刷">閲覧に加え、本文画像を含む印刷が可能になりましたが、印刷用PDFには利用者ID・氏名・作成日時が<strong>透かし</strong>として入ります。自由な一括ダウンロードではありません。</td>
+            </tr>
+            <tr>
+              <td data-label="区分"><strong>国立国会図書館内限定</strong><br><span class="badge badge-default">R4 / J0 / D2 / 直接</span></td>
+              <td data-label="誰が・どこで読めるか">東京本館・関西館・国際子ども図書館の館内端末のみ。</td>
+              <td data-label="手続き">来館が必要です。</td>
+              <td data-label="ダウンロード / 印刷">館内の複写ルールによります（自宅からの遠隔DL不可）。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout-box">
+        <h3>補足の落とし穴（海外在住者・対象変更に注意）</h3>
+        <p>
+          送信対象だった資料でも、出版社等による入手可能性の再調査で<strong>「館内限定」に戻ることがあり、恒常的な閲覧保証ではありません</strong>。また、NDLの英語案内（Digitized Contents Transmission Service for Individuals）を見て海外在住者向けと紹介する誤記が散見されますが、<strong>個人送信の居住地要件は日本国内のみ</strong>であり、海外在住の日本人は対象外です（出典：<a href="https://www.ndl.go.jp/use/digital_transmission_individuals" target="_blank" rel="noopener noreferrer">NDL公式・個人向けデジタル化資料送信サービス案内</a>）。
+        </p>
+      </div>
+    </section>
+
+    <!-- AI要約の誤り訂正セクション -->
+    <section id="ai-corrections" class="section-block">
+      <h2 class="section-heading">
+        よくあるAI要約の誤り訂正（2025–2026年実態）
+        <span class="section-heading-sub">古い情報・誇張・制度誤解のチェックリスト</span>
+      </h2>
+      <p class="section-lead">
+        生成AIや検索要約で誤って紹介されやすい主要論点について、2026年11月18日時点で公式サイト・公式ヘルプから確認できた実態と対比して整理しています。
+      </p>
+
+      <div class="ai-grid">
+        <article class="ai-card">
+          <h3>1. HathiTrust の年次ルールと一括ダウンロード</h3>
+          <div class="ai-wrong"><strong>誤りやすい主張：</strong>「1923年以前は世界中読める」「1930年以前はPD」「PDは誰でもフルPDFを落とせる」</div>
+          <p class="ai-fact"><strong>実態：</strong>公式 Copyright &amp; Access によれば、米国刊行物は「95年超前」、米国外刊行物は「125年超前」が原則PDです。1899–1928年刊行の外国作品等は<strong>米国IPでのみ full-view、日本IPでは不可</strong>となります。1876/1923/1925等の単一年号切り分けは誤り。また、Google由来PDのフルPDF一括DLは提携機関ログインが必要で、一般利用者は1ページずつの保存（制限なし資料を除く）になります（ETASもコロナ期の臨時措置でした）。</p>
+        </article>
+
+        <article class="ai-card">
+          <h3>2. British Library（英国図書館）の復旧状況</h3>
+          <div class="ai-wrong"><strong>誤りやすい主張：</strong>「従来通り使える」「数か月で復旧完了した」</div>
+          <p class="ai-fact"><strong>実態：</strong>2023年10月28日のランサムウェア攻撃の影響は継続中です。2025年11月公式更新でも、新目録は2025年12月15日開始予定、新サイトでデジタル写本3,000点超が段階復帰、EThOSは2026年初頭にメタデータのみ暫定版予定とされており、旧 Digitised Manuscripts の多くは「unavailable」表示の分断状態です。</p>
+        </article>
+
+        <article class="ai-card">
+          <h3>3. Internet Archive / Open Library の訴訟後</h3>
+          <div class="ai-wrong"><strong>誤りやすい主張：</strong>「現代本もCDLで自由に借りられる（訴訟前のまま）」／逆に「IAは閉鎖した」</div>
+          <p class="ai-fact"><strong>実態：</strong>どちらも誤りです。Hachette 訴訟は2023年3月地裁敗訴→2024年9月4日第2巡回区控訴審維持→2024年12月上告断念で敗訴が確定し、商業電子書籍のある<strong>50万冊超が貸出対象外</strong>になりました。一方、PDの自由閲覧・一括DLや Wayback Machine（2025年10月に1兆ページ到達とされる）、残存分の1時間／14日（LCP DRM）貸出は存続しています。</p>
+        </article>
+
+        <article class="ai-card">
+          <h3>4. 中国国家図書館（NLC）の登録区分</h3>
+          <div class="ai-wrong"><strong>誤りやすい主張：</strong>「実名登録が必須で外国人は一切使えない」／「無登録で全蔵書が無料全文」</div>
+          <p class="ai-fact"><strong>実態：</strong>公式登録ページは①来館読者カード（16歳以上・外国人含む）②インターネット実名利用者（<strong>有効な身分証を持つ中国公民のみ</strong>）③インターネット非実名利用者（メール・携帯認証、機能は一部）の3種を区別しています。日本から非実名登録等で中華古籍資源庫など一部遠隔資源は使える一方、多くの全文データベースには届かないのが実態です。</p>
+        </article>
+
+        <article class="ai-card">
+          <h3>5. 韓国国立中央図書館（NLK / Dibrary）と提携館PC</h3>
+          <div class="ai-wrong"><strong>誤りやすい主張：</strong>「Dibraryで日本の自宅から韓国本が読める」／「提携館制度は廃止された」</div>
+          <p class="ai-fact"><strong>実態：</strong>日本の自宅PCから無料で読めるのはPD（権利消滅・許諾済み）分のみです。著作権あり資料は NLK館内および著作権補償制度のある<strong>提携図書館の指定PC（専用ビューア閲覧・印刷有料等・DL不可）</strong>に限られ、この partner libraries 制度は現行FAQでも存続しています。</p>
+        </article>
+
+        <article class="ai-card">
+          <h3>6. Trove（オーストラリア）の存続と型</h3>
+          <div class="ai-wrong"><strong>誤りやすい主張：</strong>「2023年に資金切れで閉鎖する／した」「Troveが全資料を直接所蔵」</div>
+          <p class="ai-fact"><strong>実態：</strong>閉鎖危機は決定前の古い情報です。2023年4月に4年3,300万豪ドル＋2027年7月以降年920万豪ドル（指数連動）の継続予算が決定し存続しています。また、1803–1954/55年の新聞ゾーンはTrove自身がホストして日本からも無料閲覧・DLできますが、それ以外の資料の大半は提携機関へのリンク型です。</p>
+        </article>
+
+        <article class="ai-card">
+          <h3>7. DigiVatLib（バチカン）の公開点数と権利</h3>
+          <div class="ai-wrong"><strong>誤りやすい主張：</strong>「8万写本すべてがオンラインで読める」「無料だから再配布も自由」</div>
+          <p class="ai-fact"><strong>実態：</strong>約80,000は総写本数の規模目安であり、2025年半ば時点でオンライン化されているのは約30,000写本とする案内が複数あります（出典により差あり）。また全文テキスト検索ではなく目録・書架記号検索が中心で、無料閲覧であってもオープンライセンス（自由な再利用）ではありません。</p>
+        </article>
+
+        <article class="ai-card">
+          <h3>8. ポータル型の誤認・NDL・Gutenbergの法域差</h3>
+          <div class="ai-wrong"><strong>誤りやすい主張：</strong>「Europeana/DPLA/NDLIが本を所蔵」「NDL個人送信は海外在住でも使える」「Gutenbergはどこでも合法PD」</div>
+          <p class="ai-fact"><strong>実態：</strong>ポータルは原ファイルを持たず所蔵機関へリンクするため可否はリンク先次第です。NDL個人送信は日本国内居住者限定。Project Gutenberg は米国法PD基準のため、没後70年が基準の日本では未PDの作品が含まれ得る旨を公式が警告しており、ドイツ・イタリアでの遮断事例もあります。</p>
+        </article>
+      </div>
+
+      <!-- 2群分類批判 & 実用コラム & 除外対象 -->
+      <div class="two-col-notes">
+        <div class="note-panel">
+          <h3>なぜ「登録なし全文 vs 制限あり」の2群分類ではダメなのか</h3>
+          <ol>
+            <li><strong>同一サービス内に両方が同居する：</strong> IAはPDなら無登録DL可、貸出は登録＋DRM。HathiTrustも米国刊PDと外国刊と著作権ありで挙動が全く異なります。</li>
+            <li><strong>登録の重さが連続体：</strong> 無登録 ＜ メール認証（NDLI等） ＜ 本人確認・審査待ち（NDL本登録） ＜ 中国公民限定の実名（NLC） ＜ 提携館指定PC（韓国NLK）を2択にすると致命的な誤分類が起きます。</li>
+            <li><strong>地理・法域が独立変数：</strong> IPや居住地・著作権基準国（HathiTrust、Bokhylla、NDL個人送信、Gutenberg）は登録の有無とは無関係に可否を左右します。</li>
+            <li><strong>ポータルと直接保有の差：</strong> ポータル型ではリンク先で有料壁や制限に当たる体験を予測できません。</li>
+            <li><strong>閲覧と保存（DL）は別軸：</strong> HathiTrustの1ページずつ保存、NDL個人送信の透かしPDF、臺灣華文電子書庫のオンライン閲覧原則など、「読める＝一括保存できる」ではありません。</li>
+          </ol>
+        </div>
+
+        <div class="note-panel">
+          <h3>実用コラム・本ガイドで除外／独立計上しないもの</h3>
+          <ul>
+            <li><strong>日本の大学図書館にある韓国 NLK 提携PC：</strong> 韓国の著作権あり資料を調べる場合、一般的な代替リンク集（한국고전종합목록等）よりも、日本の大学図書館等に設置されている「NLK提携図書館の指定PC」の有無を確認する方が実用的です（海外ではSOAS・UCI等の事例も公式に知られています）。</li>
+            <li><strong>Open Library：</strong> Internet Archive の貸出インターフェースであるため、独立した別サービスとして二重計上せず IA カードに統合記載しています。</li>
+            <li><strong>掲載除外したもの：</strong> <strong>Libby / OverDrive</strong>（現地の公共図書館カードが前提で日本在住者に原則使えないため）、<strong>Sci-Hub 等の海賊版</strong>（論外）、および「Internet Culturale がイタリア国立中央図書館の単一全文倉庫である」といった不正確な単純化。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4軸ラベルとIIIF・Phase 2の見通し -->
+    <section id="methodology" class="section-block">
+      <h2 class="section-heading">
+        4軸ラベルの凡例と IIIF 対応について
+        <span class="section-heading-sub">サイト内IIIFビューア（Mirador / Universal Viewer）は Phase 2 予定</span>
+      </h2>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>軸</th>
+              <th>コードと定義</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="軸"><strong>登録 R</strong><br>Registration</td>
+              <td data-label="コードと定義"><strong>R0</strong> 不要 ／ <strong>R1</strong> メールのみ（無料） ／ <strong>R2</strong> 本人確認・審査あり ／ <strong>R3</strong> 居住・国籍・現地カード等の資格要件あり ／ <strong>R4</strong> 館内・提携館端末のみ</td>
+            </tr>
+            <tr>
+              <td data-label="軸"><strong>日本から閲覧 J</strong><br>Japan Access</td>
+              <td data-label="コードと定義"><strong>J3</strong> PD全文が広く読める ／ <strong>J2</strong> PDのみ・年代や一部制限あり ／ <strong>J1</strong> 検索・プレビュー・一部公開のみ中心 ／ <strong>J0</strong> 原則不可 ／ <strong>J-</strong> リンク先依存（ポータル型）</td>
+            </tr>
+            <tr>
+              <td data-label="軸"><strong>保存 D</strong><br>Download</td>
+              <td data-label="コードと定義"><strong>D3</strong> PDF/EPUB等で一括DL可 ／ <strong>D2</strong> 条件付き（ページ単位・印刷用・DRM貸出など） ／ <strong>D1</strong> 閲覧のみ ／ <strong>D-</strong> リンク先依存（ポータル型）</td>
+            </tr>
+            <tr>
+              <td data-label="軸"><strong>型 T</strong><br>Architecture Type</td>
+              <td data-label="コードと定義"><strong>直接</strong> 自らデジタルファイルを保有 ／ <strong>ポータル</strong> 提携機関のメタデータを集約しリンク誘導（J・Dは「リンク先依存」） ／ <strong>混合</strong> 直接保有と集約・提携館配信が混在</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout-box info-box">
+        <h3>IIIF（高精細画像・写本の国際相互運用規格）と Phase 2 計画</h3>
+        <p>
+          IIIF（International Image Interoperability Framework）に対応した図書館では、資料固有の「マニフェスト（JSON）」URLを取得でき、異なる図書館の写本や古地図を同じビューア上で並べて高精細拡大比較できます。本サイト v1 では各カードの <strong>IIIF対応</strong> バッジと公式仕様・マニフェスト形式を明示しています（例：NDL・Gallica・DigiVatLib・LOC・Internet Archive・Canadiana・ÖNB・ノルウェー・フィンランド・DDB・Europeana）。これらを本サイト上で直接並べて閲覧できる <strong>サイト内IIIFビューア（Mirador / Universal Viewer 等）は Phase 2 のパイロット</strong>として計画しています。
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="credits" class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <h2>データ出典・検証方針</h2>
+        <p>
+          本サイトの掲載情報（サービス評価・4軸判定・規模表記・AI要約訂正）は、すべて <code>DATA_SOURCE.md</code>（調査日：2026年11月18日／公式サイト・公式ヘルプのウェブ索引確認）に基づいています。件数は発表時期が異なるため必ず「○年時点」または調査時点を明記し、日本IPからの実ブラウザ個別テストが未了の項目（ポルトガル・イタリア・デンマーク・チェコ・中南米細部・ロシアNEB等）には「追加検証中」を付しています。
+        </p>
+        <p>
+          検索URLパターンは公式ドキュメントおよび動作確認で確実なもののみ実装し、SPA動的画面等で不定なアーカイブは推測せず通常リンクに留めています。
+        </p>
+      </div>
+      <div>
+        <h2>図書館写真クレジット（Wikimedia Commons）</h2>
+        <ul class="credit-list">
+          <li><strong>国立国会図書館 東京本館：</strong> <a href="https://commons.wikimedia.org/wiki/File:Tokyo_Main_Library_of_the_National_Diet_Library_20190202.jpg" target="_blank" rel="noopener noreferrer">Tokyo Main Library of the National Diet Library 20190202.jpg</a> / Peacearth / CC BY-SA 4.0</li>
+          <li><strong>BnF リシュリュー館：</strong> <a href="https://commons.wikimedia.org/wiki/File:Biblioth%C3%A8que_nationale_de_France_-_Site_Richelieu_(2012).jpg" target="_blank" rel="noopener noreferrer">Bibliothèque nationale de France - Site Richelieu (2012).jpg</a> / vincent desjardins / CC BY 2.0</li>
+          <li><strong>大英図書館：</strong> <a href="https://commons.wikimedia.org/wiki/File:British_Library_%2B_St_Pancras_7527-31hug.jpg" target="_blank" rel="noopener noreferrer">British Library + St Pancras 7527-31hug.jpg</a> / Patche99z / CC BY-SA 3.0</li>
+          <li><strong>米国議会図書館 中央閲覧室：</strong> <a href="https://commons.wikimedia.org/wiki/File:LOC_Main_Reading_Room_Highsmith.jpg" target="_blank" rel="noopener noreferrer">LOC Main Reading Room Highsmith.jpg</a> / Carol M. Highsmith (Library of Congress) / Public Domain</li>
+          <li><strong>オーストリア国立図書館：</strong> <a href="https://commons.wikimedia.org/wiki/File:Wien_Prunksaal_Oesterreichische_Nationalbibliothek.jpg" target="_blank" rel="noopener noreferrer">Wien Prunksaal Oesterreichische Nationalbibliothek.jpg</a> / Oke / CC BY-SA 3.0</li>
+          <li><strong>バチカン図書館：</strong> <a href="https://commons.wikimedia.org/wiki/File:0_Salone_Sistine_-_Biblioteca_apostolica_Vaticana_(1).JPG" target="_blank" rel="noopener noreferrer">0 Salone Sistine - Biblioteca apostolica Vaticana (1).JPG</a> / Jean-Pol GRANDMONT / CC BY-SA 3.0</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      world-free-library &middot; 静的HTML/CSS/JS実装（ビルド不要・GitHub Pages対応） &middot; 最終検証データ基準: 2026-11-18
+    </div>
+  </footer>
+
+<script>
+(function () {
+  "use strict";
+
+  const ARCHIVES = [
+    {
+      id: "ndl-internet",
+      name: "国立国会図書館デジタルコレクション（インターネット公開）",
+      country: "日本",
+      region: "jp",
+      eras: ["pre19", "c19", "c20early", "modern"],
+      genres: ["books", "manuscripts", "maps_images", "academic"],
+      rCode: "R0",
+      rLabel: "不要（ログインなし）",
+      jCode: "J3",
+      jLabel: "世界中誰でも全文画像閲覧可",
+      dCode: "D3",
+      dLabel: "資料によりDL・印刷可",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: true,
+      unverified: false,
+      warning: false,
+      scale: "NDLデジタルコレクションのうち「インターネット公開」区分（2026年11月調査時点）",
+      strengths: "明治以降の日本刊行物、官報、古典籍、博士論文（インターネット公開対象分）",
+      notes: "NDLの全所蔵が読めるわけではありません。資料ごとに「インターネット公開／個人送信／館内限定」の3区分が分かれています。",
+      aiNote: "概ね正しいが「全所蔵が読める」と解釈すると誤り（3区分表記が必須）。",
+      badges: ["PD中心", "古典籍・官報", "日本語"],
+      iiif: true,
+      iiifNote: "公開資料のマニフェスト形式: https://www.dl.ndl.go.jp/api/iiif/{永続的識別子}/manifest.json",
+      iiifUrl: "https://dl.ndl.go.jp/",
+      officialUrl: "https://dl.ndl.go.jp/",
+      extraLinks: [],
+      searchUrlTemplate: "https://dl.ndl.go.jp/search/searchResult?keyword={q}&accessRestrictions=internet",
+      searchLabel: "インターネット公開分を検索",
+      keywords: "NDL 国立国会図書館 Japan 古典籍 博士論文 官報 明治"
+    },
+    {
+      id: "ndl-transmission",
+      name: "国立国会図書館デジタルコレクション（図書館・個人送信限定）",
+      country: "日本",
+      region: "jp",
+      eras: ["c19", "c20early", "modern"],
+      genres: ["books", "newspapers", "academic"],
+      rCode: "R2",
+      rLabel: "本登録（本人確認・審査待ち）※図書館送信はR4端末",
+      jCode: "J3",
+      jLabel: "日本国内居住者のみ・対象資料限定",
+      dCode: "D2",
+      dLabel: "透かし入り印刷用PDFのみ（一括DL不可）",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: false,
+      unverified: false,
+      warning: false,
+      scale: "2022年5月19日個人向け開始（絶版等入手困難資料が対象／2026年11月調査時点）",
+      strengths: "絶版等の入手困難資料（明治〜戦後刊行書籍・雑誌等、法31条対象分）",
+      notes: "日本国内居住の本登録利用者のみ自宅閲覧可（海外在住日本人は対象外）。本人確認書類の審査待ちがあり（体験記では5日前後との報告あるが公式保証なし）、簡易登録は不可。印刷PDFに利用者ID・氏名等の透かしが入ります。再調査で館内限定に戻る場合あり。",
+      aiNote: "「海外在住でも登録すれば使える」「即時登録」は誤り。",
+      badges: ["国内居住者限定", "要本登録審査", "日本語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://www.ndl.go.jp/use/digital_transmission_individuals",
+      extraLinks: [{ label: "NDLデジコレ検索", url: "https://dl.ndl.go.jp/" }],
+      searchUrlTemplate: "https://dl.ndl.go.jp/search/searchResult?keyword={q}",
+      searchLabel: "デジコレ全体を検索",
+      keywords: "NDL 個人送信 図書館送信 絶版 国立国会図書館 本登録"
+    },
+    {
+      id: "ndl-onsite",
+      name: "国立国会図書館デジタルコレクション（国立国会図書館内限定）",
+      country: "日本",
+      region: "jp",
+      eras: ["c19", "c20early", "modern"],
+      genres: ["books", "newspapers", "academic"],
+      rCode: "R4",
+      rLabel: "来館・館内端末のみ",
+      jCode: "J0",
+      jLabel: "遠隔閲覧不可（館内端末のみ）",
+      dCode: "D2",
+      dLabel: "館内複写ルールによる（遠隔DL不可）",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: false,
+      unverified: false,
+      warning: false,
+      scale: "東京本館・関西館・国際子ども図書館の館内端末限定資料（2026年11月調査時点）",
+      strengths: "著作権保護対象・送信対象外の国内刊行物・新聞・雑誌等",
+      notes: "自宅からは書誌検索のみ。送信対象だった資料も入手可能性の再調査により館内限定へ戻ることがあります。",
+      aiNote: "NDLの総規模すべてがオンライン公開されているわけではない点に注意。",
+      badges: ["来館専用", "日本語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://dl.ndl.go.jp/",
+      extraLinks: [],
+      searchUrlTemplate: "https://dl.ndl.go.jp/search/searchResult?keyword={q}",
+      searchLabel: "所蔵を検索（閲覧は館内）",
+      keywords: "NDL 館内限定 国立国会図書館 来館"
+    },
+    {
+      id: "gallica",
+      name: "Gallica（フランス国立図書館 BnF）",
+      country: "フランス",
+      region: "europe",
+      eras: ["pre19", "c19", "c20early"],
+      genres: ["books", "newspapers", "manuscripts", "maps_images"],
+      rCode: "R0",
+      rLabel: "不要",
+      jCode: "J3",
+      jLabel: "PD中心に全文閲覧可",
+      dCode: "D3",
+      dLabel: "PDF/EPUB等（作品による）",
+      tCode: "hybrid",
+      tLabel: "混合（直接＋提携館集約）",
+      freeFullText: true,
+      unverified: false,
+      warning: false,
+      scale: "1,000万件超（2025年1月時点で1,100万件超とする紹介あり）",
+      strengths: "仏語の書籍・新聞・写本・画像・楽譜（中世〜20世紀初頭）",
+      notes: "著作権あり資料は BnF 館内（Gallica intra muros）限定です。有料新聞サービス RetroNews とは区別が必要です。",
+      aiNote: "記述は概ね正しいが、館内限定分や有料RetroNewsとの混同に注意。",
+      badges: ["PD中心", "新聞・写本", "フランス語"],
+      iiif: true,
+      iiifNote: "マニフェスト形式: https://gallica.bnf.fr/iiif/ark:/12148/{ARK_ID}/manifest.json",
+      iiifUrl: "https://api.bnf.fr/fr/api-iiif-de-recuperation-des-images-de-gallica",
+      officialUrl: "https://gallica.bnf.fr/",
+      extraLinks: [],
+      searchUrlTemplate: "https://gallica.bnf.fr/services/engine/search/sru?operation=searchRetrieve&version=1.2&query=gallica%20all%20%22{q}%22",
+      searchLabel: "Gallicaで検索",
+      keywords: "BnF フランス 仏語 楽譜 写本 Gallica"
+    },
+    {
+      id: "europeana",
+      name: "Europeana",
+      country: "EU（欧州横断）",
+      region: "europe",
+      eras: ["pre19", "c19", "c20early", "modern"],
+      genres: ["books", "newspapers", "manuscripts", "maps_images"],
+      rCode: "R0",
+      rLabel: "不要",
+      jCode: "J-",
+      jLabel: "リンク先依存",
+      dCode: "D-",
+      dLabel: "リンク先依存（権利表示による）",
+      tCode: "portal",
+      tLabel: "ポータル（リンク型）",
+      freeFullText: false,
+      unverified: false,
+      warning: false,
+      scale: "約5,000万〜6,000万件・3,000機関超（※発表時期差あり・2026年11月調査参照）",
+      strengths: "欧州文化遺産の横断検索、権利フィルタ「Can I use it?」",
+      notes: "Europeana 自体は原ファイルを保有せず各所蔵機関へリンクします。ダウンロード可否は提供機関が決めます。",
+      aiNote: "「欧州のデジタル図書館が本を直接所蔵」と書くのが典型的なAI誤り。",
+      badges: ["ポータル", "欧州横断", "多言語"],
+      iiif: true,
+      iiifNote: "Record Presentation API (IIIF) 提供（原画像対応は提供機関次第）",
+      iiifUrl: "https://pro.europeana.eu/page/apis",
+      officialUrl: "https://www.europeana.eu/",
+      extraLinks: [{ label: "権利表示ガイド", url: "https://pro.europeana.eu/index.php/post/they-re-here-new-rights-statements-available-now" }],
+      searchUrlTemplate: "https://www.europeana.eu/en/search?query={q}",
+      searchLabel: "Europeanaで検索",
+      keywords: "EU 欧州 ポータル Europeana Can I use it"
+    },
+    {
+      id: "ddb",
+      name: "Deutsche Digitale Bibliothek (DDB)",
+      country: "ドイツ",
+      region: "europe",
+      eras: ["pre19", "c19", "c20early"],
+      genres: ["books", "newspapers", "manuscripts", "maps_images"],
+      rCode: "R0",
+      rLabel: "不要（お気に入り等は任意）",
+      jCode: "J-",
+      jLabel: "リンク先依存（新聞1671–1950等は無料閲覧多）",
+      dCode: "D-",
+      dLabel: "リンク先依存（対象次第）",
+      tCode: "portal",
+      tLabel: "ポータル（メタデータCC0）",
+      freeFullText: false,
+      unverified: false,
+      warning: false,
+      scale: "ドイツ文化遺産横断・Zeitungsportal（新聞1671–1950年）・Archivportal-D（2026年11月調査時点）",
+      strengths: "ドイツ語圏文化遺産の横断検索、歴史新聞ポータル（1671–1950）",
+      notes: "メタデータはCC0ですがオブジェクトの権利は各提供機関に帰属します。公式ヘルプ自体「DDBはストリーミング／メディアライブラリではなく、現代の小説・映画・音楽はない」と明言しています。",
+      aiNote: "ポータルである点を落とすと誤り。新聞ポータル以外は大半がリンク先依存。",
+      badges: ["ポータル", "新聞に強い", "ドイツ語"],
+      iiif: true,
+      iiifNote: "IIIF Image/Presentation API 導入（DDBapi /items/{id}/iiif 等）",
+      iiifUrl: "https://pro.deutsche-digitale-bibliothek.de/en/content/international-image-interoperability-framework-iiif",
+      officialUrl: "https://www.deutsche-digitale-bibliothek.de/",
+      extraLinks: [],
+      searchUrlTemplate: "https://www.deutsche-digitale-bibliothek.de/searchresults?query={q}",
+      searchLabel: "DDBで検索",
+      keywords: "ドイツ DDB Zeitungsportal 新聞 Archivportal-D"
+    },
+    {
+      id: "delpher",
+      name: "Delpher（オランダ王立図書館 KB）",
+      country: "オランダ",
+      region: "europe",
+      eras: ["pre19", "c19", "c20early"],
+      genres: ["books", "newspapers"],
+      rCode: "R0",
+      rLabel: "不要",
+      jCode: "J2",
+      jLabel: "PD（古い年代ほど自由・年代制限あり）",
+      dCode: "D2",
+      dLabel: "PD（新聞概ね140年超前）は自由DL、新年代は制限",
+      tCode: "hybrid",
+      tLabel: "混合（直接＋提携機関）",
+      freeFullText: true,
+      unverified: false,
+      warning: false,
+      scale: "オランダ語新聞約200万号（1618–1995年）ほか書籍・雑誌・ラジオ速報（2026年11月調査時点）",
+      strengths: "オランダ語新聞（1618–1995年）のOCR全文検索、書籍・雑誌・ラジオ速報",
+      notes: "年代により権利とアクセス可否が大きく変わります。著作権あり新聞は非商業学術利用等に限定される場合があります。",
+      aiNote: "概ね正しいが、1995年までの新聞すべてが自由DLではない点に注意。",
+      badges: ["新聞に強い", "年代制限あり", "オランダ語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://www.delpher.nl/",
+      extraLinks: [{ label: "KBデータセット説明", url: "https://www.kb.nl/en/research-find/datasets/delpher-newspapers" }],
+      searchUrlTemplate: "https://www.delpher.nl/nl/platform/results?query={q}&coll=platform",
+      searchLabel: "Delpherで検索",
+      keywords: "オランダ KB Delpher 新聞 OCR"
+    },
+    {
+      id: "bne",
+      name: "BNE Digital（Biblioteca Digital Hispánica + Hemeroteca Digital）",
+      country: "スペイン",
+      region: "europe",
+      eras: ["pre19", "c19", "c20early"],
+      genres: ["books", "newspapers", "manuscripts", "maps_images"],
+      rCode: "R0",
+      rLabel: "不要",
+      jCode: "J3",
+      jLabel: "15〜19/20世紀のPD中心に全文",
+      dCode: "D3",
+      dLabel: "PDは自由に閲覧・DL可",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: true,
+      unverified: false,
+      warning: false,
+      scale: "2025/2026年PD入り著者作品を追加公表（現行名 BNE Digital に統合中／2026年11月調査時点）",
+      strengths: "スペイン語の古典、写本、地図、歴史的新聞・雑誌",
+      notes: "現行名 BNE Digital へ統合されつつあります。スペインは著者死後80年でPD入りの例あり（1944年没→2025年等）。現代のスペイン語書籍が読めるわけではありません。",
+      aiNote: "正しい（ただし「現代書籍が読める」ではない）。",
+      badges: ["PD中心", "新聞・写本", "スペイン語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://bnedigital.bne.es/",
+      extraLinks: [
+        { label: "BDH旧入口", url: "https://bdh.bne.es/" },
+        { label: "Hemeroteca新聞", url: "https://hemerotecadigital.bne.es/" }
+      ],
+      searchUrlTemplate: null,
+      searchLabel: "",
+      keywords: "スペイン BDH Hemeroteca BNE Digital 古典 地図"
+    },
+    {
+      id: "anno",
+      name: "ANNO（オーストリア国立図書館 ÖNB 歴史的新聞）",
+      country: "オーストリア",
+      region: "europe",
+      eras: ["pre19", "c19", "c20early"],
+      genres: ["newspapers"],
+      rCode: "R0",
+      rLabel: "不要",
+      jCode: "J3",
+      jLabel: "1568/1716–1955頃の独語新聞全文可",
+      dCode: "D3",
+      dLabel: "1ページPDF・orig高品質・号全体DL可の紹介あり",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: true,
+      unverified: false,
+      warning: false,
+      scale: "約2,800万ページ・1,600誌超・90%超が全文検索可（2026年11月調査時点）",
+      strengths: "1568/1716–1955年頃のドイツ語新聞・雑誌（Wiener Zeitung 等）",
+      notes: "ÖNB自体はスキャンに著作権を主張せず再利用可とFAQで明言していますが、Google提携分は非商業のみ等の例外や第三者権利の確認が必要です。",
+      aiNote: "正しい。ÖNB全体の書籍入口（ÖNB Digital）とは分けて表記すべき。",
+      badges: ["PD中心", "新聞に強い", "ドイツ語"],
+      iiif: true,
+      iiifNote: "SACHA形式: https://iiif.onb.ac.at/presentation/ANNO/{id}/manifest/",
+      iiifUrl: "https://iiif.onb.ac.at/api/",
+      officialUrl: "https://anno.onb.ac.at/",
+      extraLinks: [{ label: "ANNO FAQ", url: "https://anno.onb.ac.at/node/36" }],
+      searchUrlTemplate: "https://anno.onb.ac.at/anno-suche#searchMode=simple&from=1&query={q}",
+      searchLabel: "ANNOで新聞検索",
+      keywords: "オーストリア ÖNB ANNO 新聞 独語 Wiener Zeitung"
+    },
+    {
+      id: "onb-digital",
+      name: "ÖNB Digital（オーストリア国立図書館／ANNO以外）",
+      country: "オーストリア",
+      region: "europe",
+      eras: ["pre19", "c19", "c20early"],
+      genres: ["books", "manuscripts", "maps_images"],
+      rCode: "R0",
+      rLabel: "不要（PD分）",
+      jCode: "J2",
+      jLabel: "書籍・画像・地図（対象による）",
+      dCode: "D2",
+      dLabel: "対象次第（Google提携分等条件あり）",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: true,
+      unverified: false,
+      warning: false,
+      scale: "ANNO以外の書籍（Austrian Books Online）・貴重書・画像・地図群（2026年11月調査時点）",
+      strengths: "ANNO＋書籍・貴重書・絵葉書・歴史地図のデジタル入口",
+      notes: "ANNOは新聞専用ポータルであり、書籍や貴重書を扱う ÖNB Digital と同一視しないよう区分しています。",
+      aiNote: "ANNOと同一視すると不正確。",
+      badges: ["書籍・地図", "写本・画像", "ドイツ語"],
+      iiif: true,
+      iiifNote: "SACHA形式: https://iiif.onb.ac.at/presentation/{project}/{id}/manifest/",
+      iiifUrl: "https://iiif.onb.ac.at/api/",
+      officialUrl: "https://onb.digital/",
+      extraLinks: [{ label: "ÖNB Labs SACHA", url: "https://labs.onb.ac.at/de/tool/sacha/" }],
+      searchUrlTemplate: null,
+      searchLabel: "",
+      keywords: "オーストリア ÖNB Digital Austrian Books Online 地図 貴重書"
+    },
+    {
+      id: "digivatlib",
+      name: "DigiVatLib（バチカン図書館）",
+      country: "バチカン",
+      region: "europe",
+      eras: ["pre19"],
+      genres: ["manuscripts", "books"],
+      rCode: "R0",
+      rLabel: "不要",
+      jCode: "J2",
+      jLabel: "デジタル化済み約30,000写本（2025年半ば案内）のみ全文画像",
+      dCode: "D2",
+      dLabel: "IIIF閲覧・拡大可、DLや再利用は対象・条件あり",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: true,
+      unverified: false,
+      warning: false,
+      scale: "2025年半ばで約30,000写本とする複数案内あり（総写本約80,000の全部ではない）",
+      strengths: "Codex Vaticanus 等の写本、インキュナブラ（書架記号・目録検索）",
+      notes: "全文テキスト検索ではなく目録検索です。閲覧室自体は資格ある研究者のみ。無料閲覧＝オープンライセンス（自由な再利用可）ではありません。",
+      aiNote: "「80,000写本すべてオンライン」は典型的な誇張。",
+      badges: ["写本・画像", "IIIF基盤", "ラテン語等"],
+      iiif: true,
+      iiifNote: "マニフェスト形式: https://digi.vatlib.it/iiif/{Shelfmark}/manifest.json",
+      iiifUrl: "https://iiif.io/guides/vatlib.it/",
+      officialUrl: "https://digi.vatlib.it/",
+      extraLinks: [],
+      searchUrlTemplate: null,
+      searchLabel: "",
+      keywords: "バチカン Vatican DigiVatLib 写本 インキュナブラ Codex"
+    },
+    {
+      id: "british-library",
+      name: "British Library Digital Collections（大英図書館）",
+      country: "英国",
+      region: "europe",
+      eras: ["pre19", "c19", "c20early", "modern"],
+      genres: ["manuscripts", "books", "newspapers", "academic"],
+      rCode: "R0",
+      rLabel: "不要（残存・復帰分）",
+      jCode: "J1",
+      jLabel: "分断状態（新サイト写本3,000点超復帰・多くがunavailable）",
+      dCode: "D2",
+      dLabel: "復帰した対象のみ",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: false,
+      unverified: false,
+      warning: true,
+      scale: "新サイトでデジタル写本3,000点超が段階復帰（2025年11月公式更新時点）",
+      strengths: "写本、Endangered Archives Programme、新聞（ただし British Newspaper Archive は別途有料提携）",
+      notes: "2023年10月28日の Rhysida ランサムウェア攻撃の影響が継続。2025年11月公式更新では新目録は2025年12月15日開始予定、EThOSは2026年初頭にメタデータ暫定版予定とされ、旧 Digitised Manuscripts の多くは unavailable 表示です。",
+      aiNote: "「復旧完了」「従来通り使える」は2025–26年現在で明確な誤り。",
+      badges: ["要注意: 2023年攻撃から復旧中", "写本・画像", "英語"],
+      iiif: true,
+      iiifNote: "復帰資料のUniversal Viewer等から共有可（https://api.bl.uk/metadata/iiif/... ※多くが復旧途上）",
+      iiifUrl: "https://www.bl.uk/stories/news/restoring-our-services-november-2025-update",
+      officialUrl: "https://www.bl.uk/",
+      extraLinks: [{ label: "公式復旧状況(2025/11)", url: "https://www.bl.uk/stories/news/restoring-our-services-november-2025-update" }],
+      searchUrlTemplate: null,
+      searchLabel: "",
+      keywords: "英国 イギリス 大英図書館 British Library BL ランサムウェア EThOS"
+    },
+    {
+      id: "loc",
+      name: "Library of Congress Digital Collections（米国議会図書館）",
+      country: "米国",
+      region: "north_america",
+      eras: ["pre19", "c19", "c20early", "modern"],
+      genres: ["books", "newspapers", "manuscripts", "maps_images", "web_media"],
+      rCode: "R0",
+      rLabel: "不要",
+      jCode: "J3",
+      jLabel: "多くが自由閲覧（全点PDではない）",
+      dCode: "D3",
+      dLabel: "画像等は無料DL（各Rights Advisory確認）",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: true,
+      unverified: false,
+      warning: false,
+      scale: "写真・地図・新聞・写本・録音・Selected Digitized Books 等の大規模公開（2026年11月調査時点）",
+      strengths: "写真、歴史地図、米国新聞（Chronicling America）、写本、録音、Selected Digitized Books",
+      notes: "「Free to Use and Reuse」はPD／権利なしと判断された選定セットの名称であり、全LOCコレクションが無制限という意味ではありません。各資料の Rights Advisory を確認してください。",
+      aiNote: "正しい（ただし全コレクション無制限と混同しないこと）。",
+      badges: ["PD中心", "新聞・地図・録音", "英語中心"],
+      iiif: true,
+      iiifNote: "個別アイテムURL末尾に /manifest.json（例: https://www.loc.gov/item/{id}/manifest.json）",
+      iiifUrl: "https://www.loc.gov/apis/microservices/image-services/",
+      officialUrl: "https://www.loc.gov/collections/",
+      extraLinks: [{ label: "Chronicling America新聞", url: "https://chroniclingamerica.loc.gov/" }],
+      searchUrlTemplate: "https://www.loc.gov/search/?q={q}",
+      searchLabel: "LOCで検索",
+      keywords: "アメリカ 米国議会図書館 LOC Chronicling America 地図 新聞 録音"
+    },
+    {
+      id: "dpla",
+      name: "DPLA（Digital Public Library of America）",
+      country: "米国",
+      region: "north_america",
+      eras: ["pre19", "c19", "c20early", "modern"],
+      genres: ["books", "newspapers", "manuscripts", "maps_images"],
+      rCode: "R0",
+      rLabel: "不要",
+      jCode: "J-",
+      jLabel: "リンク先依存",
+      dCode: "D-",
+      dLabel: "リンク先依存",
+      tCode: "portal",
+      tLabel: "ポータル（ハブ集約）",
+      freeFullText: false,
+      unverified: false,
+      warning: false,
+      scale: "4,800万件超のメタデータ（2026年11月調査時点）",
+      strengths: "米国各地の図書館・博物館・公文書館の横断検索、Primary Source Sets",
+      notes: "DPLA 自体はデジタルオブジェクトを保持せずメタデータとサムネイルのみで、全文は提携機関で閲覧します。DPLAの電子書籍貸出事業（Palace Project等）は別事業です。",
+      aiNote: "「DPLAが本を直接所蔵」と書けば誤り。",
+      badges: ["ポータル", "米国横断", "英語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://dp.la/",
+      extraLinks: [],
+      searchUrlTemplate: "https://dp.la/search?q={q}",
+      searchLabel: "DPLAで検索",
+      keywords: "アメリカ 米国 DPLA ポータル Primary Source Sets"
+    },
+    {
+      id: "canadiana",
+      name: "Canadiana (CRKN)",
+      country: "カナダ",
+      region: "north_america",
+      eras: ["pre19", "c19", "c20early"],
+      genres: ["books", "newspapers", "manuscripts"],
+      rCode: "R0",
+      rLabel: "不要（2019年1月1日から無料公開）",
+      jCode: "J3",
+      jLabel: "〜1920年頃のカナダ刊行物等が全文可",
+      dCode: "D2",
+      dLabel: "閲覧中心、ページ画像保存はビューア次第",
+      tCode: "direct",
+      tLabel: "直接リポジトリ（Canadiana＋Héritage）",
+      freeFullText: true,
+      unverified: false,
+      warning: false,
+      scale: "7,000万ページ超（CRKN公式・2026年11月調査時点）",
+      strengths: "〜1920年頃までのカナダ刊行物、先住民・移民・軍事記録、LACマイクロフィルム公文書（Héritage）",
+      notes: "旧 Early Canadiana Online の有料購読制時代の記述は古いです（2019年以降無料）。3コレクションは個別検索が必要な場合があります。",
+      aiNote: "正しい（2019年以前の有料イメージは古い情報）。",
+      badges: ["PD中心", "公文書・刊行物", "英仏語"],
+      iiif: true,
+      iiifNote: "Héritage等の形式: https://heritage.canadiana.ca/iiif/{id}/manifest",
+      iiifUrl: "https://www.crkn-rcdr.ca/en/canadiana",
+      officialUrl: "https://www.canadiana.ca/",
+      extraLinks: [{ label: "CRKN公式案内", url: "https://www.crkn-rcdr.ca/en/canadiana" }],
+      searchUrlTemplate: "https://www.canadiana.ca/search?q={q}",
+      searchLabel: "Canadianaで検索",
+      keywords: "カナダ CRKN Canadiana Héritage 公文書 移民"
+    },
+    {
+      id: "bndigital-br",
+      name: "BNDigital + Hemeroteca Digital Brasileira（ブラジル国立図書館）",
+      country: "ブラジル",
+      region: "latin_america",
+      eras: ["pre19", "c19", "c20early"],
+      genres: ["newspapers", "books", "maps_images"],
+      rCode: "R0",
+      rLabel: "不要",
+      jCode: "J3",
+      jLabel: "19世紀〜の新聞・雑誌や資料が閲覧可",
+      dCode: "D2",
+      dLabel: "高解像度画像の各種DL案内あり（各資料で確認）",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: true,
+      unverified: false,
+      warning: false,
+      scale: "約210万件超、新聞・雑誌約8,000タイトル（2026年11月調査時点）",
+      strengths: "ポルトガル語歴史的新聞、図像、地図、植民地史料",
+      notes: "インターフェースはポルトガル語中心です。権利制限通知が出る資料があり、個別のDL可否は実地確認・権利表示確認が望ましいです。",
+      aiNote: "概ね正しい。",
+      badges: ["新聞に強い", "地図・図像", "ポルトガル語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://bndigital.bn.gov.br/",
+      extraLinks: [{ label: "Hemeroteca新聞", url: "https://memoria.bn.gov.br/" }],
+      searchUrlTemplate: null,
+      searchLabel: "",
+      keywords: "ブラジル BNDigital Hemeroteca ポルトガル語 新聞"
+    },
+    {
+      id: "taiwan-ebook",
+      name: "臺灣華文電子書庫（台湾・国家図書館）",
+      country: "台湾",
+      region: "asia",
+      eras: ["c20early"],
+      genres: ["books", "academic"],
+      rCode: "R0",
+      rLabel: "不要（公式に帳号密碼不要・リーダー不要）",
+      jCode: "J3",
+      jLabel: "1911–1949年出版物・政府出版品をオンライン閲覧可",
+      dCode: "D1",
+      dLabel: "オンライン閲覧原則（DL全面保証なし）",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: true,
+      unverified: false,
+      warning: false,
+      scale: "1911–1949年出版物の協力デジタル化＋政府出版品（2026年11月調査時点）",
+      strengths: "正体字中国語の台湾研究史料（1911–1949年）、政府出版品",
+      notes: "公式説明はオンライン閲覧（PDF形式）が原則であり、一括ダウンロードを全面約束するものではありません。台湾公共図書館カードで借りる HyRead／台灣雲端書庫 等の現代電子書籍とは別物です。",
+      aiNote: "対象年代（1911–1949）を落とす誤解や、現代電子書籍貸出サービスとの混同が頻発。",
+      badges: ["1911–1949年", "閲覧中心", "正体字中国語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://taiwanebook.ncl.edu.tw/",
+      extraLinks: [{ label: "詳細検索ページ", url: "https://taiwanebook.ncl.edu.tw/zh-tw/advancedSearch" }],
+      searchUrlTemplate: null,
+      searchLabel: "",
+      keywords: "台湾 臺灣華文電子書庫 国家図書館 民国期 正体字"
+    },
+    {
+      id: "nlk",
+      name: "National Library of Korea / Dibrary（韓国国立中央図書館）",
+      country: "韓国",
+      region: "asia",
+      eras: ["pre19", "c19", "c20early", "modern"],
+      genres: ["books", "newspapers", "manuscripts", "academic"],
+      rCode: "R4",
+      rLabel: "検索・PD分はR0／著作権ありはNLK・提携館PCのみ",
+      jCode: "J2",
+      jLabel: "PD・許諾済みのみ自宅可（著作権ありは不可）",
+      dCode: "D1",
+      dLabel: "著作権ありはDL不可（専用ビューア閲覧・有料印刷）",
+      tCode: "hybrid",
+      tLabel: "混合（直接＋提携館配信）",
+      freeFullText: false,
+      unverified: false,
+      warning: false,
+      scale: "古書・官報（1894–）・新聞（〜1945）・韓国学資料等（2026年11月調査時点）",
+      strengths: "古書・官報（1894年〜）、歴史新聞（〜1945年）、韓国学資料",
+      notes: "著作権あり資料は日本の自宅PCからは読めず、NLK館内または著作権補償制度のある提携図書館（SOAS・UCIや日本の大学図書館等）の指定PCでのみ閲覧可能です。",
+      aiNote: "「韓国本が自宅で読める」「提携館制度は廃止された」は誤り。",
+      badges: ["提携館PC制度", "新聞・古書", "韓国語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://www.nl.go.kr/EN/contents/EN50200000000.do",
+      extraLinks: [{ label: "NLKトップ", url: "https://www.nl.go.kr/" }],
+      searchUrlTemplate: null,
+      searchLabel: "",
+      keywords: "韓国 NLK Dibrary 提携館 官報 新聞"
+    },
+    {
+      id: "nlc",
+      name: "National Digital Library of China (NLC / 中国国家図書館)",
+      country: "中国",
+      region: "asia",
+      eras: ["pre19", "c19", "c20early", "modern"],
+      genres: ["manuscripts", "books", "academic"],
+      rCode: "R1",
+      rLabel: "R1 非実名（メール/携帯）可／R3 実名は中国公民のみ／R4 来館",
+      jCode: "J1",
+      jLabel: "検索・一部公開（中華古籍資源庫等）が中心",
+      dCode: "D1",
+      dLabel: "資源による（複写・DL不可のDB多数）",
+      tCode: "hybrid",
+      tLabel: "混合（直接＋データベース群）",
+      freeFullText: false,
+      unverified: false,
+      warning: false,
+      scale: "古籍・敦煌・拓本・学位論文・中国刊行物（2026年11月調査時点）",
+      strengths: "中国古籍（中華古籍資源庫等）、敦煌資料、拓本、中国学位論文",
+      notes: "公式登録ページは①来館読者カード（外国人可）②ネット実名（中国身分証保持の中国公民のみ）③ネット非実名（メール/携帯認証・機能制限）を区別しています。日本在住外国人は実名遠隔の対象外です。",
+      aiNote: "「完全無登録で全文」も「すべて実名必須で外国人不可」もどちらも単純化し過ぎ。",
+      badges: ["一部非実名可", "古籍・敦煌", "中国語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://www.nlc.cn/",
+      extraLinks: [{ label: "公式登録区分案内", url: "https://www.nlc.cn/enweb/dzzn/dsb_zkxz/index.shtml" }],
+      searchUrlTemplate: null,
+      searchLabel: "",
+      keywords: "中国 NLC 中国国家図書館 中華古籍資源庫 敦煌 実名 非実名"
+    },
+    {
+      id: "ndli",
+      name: "NDLI（National Digital Library of India）",
+      country: "インド",
+      region: "asia",
+      eras: ["c19", "c20early", "modern"],
+      genres: ["academic", "books", "web_media"],
+      rCode: "R1",
+      rLabel: "基本R0／国家ライセンス資料は世界から無料登録(R1)必須",
+      jCode: "J-",
+      jLabel: "リンク先依存（オープン教材は可、ライセンスは登録後）",
+      dCode: "D-",
+      dLabel: "リンク先依存（全文表示ありはDL可の場合）",
+      tCode: "portal",
+      tLabel: "ポータル（メタ・ポータル）",
+      freeFullText: false,
+      unverified: false,
+      warning: false,
+      scale: "数千万件規模のメタデータ（IIT Kharagpur運営・教育省／2026年11月調査時点）",
+      strengths: "学校〜研究向け教材、講義動画、NCERT、インド諸言語資料",
+      notes: "自前のコレクションを持たず数百の提供元へ誘導します。登録は世界中から可能で「インド人専用」ではありませんが、メタデータ件数のすべてが全文読めるわけではありません。",
+      aiNote: "「インドの本の倉庫」「インド人専用」は誤り。",
+      badges: ["ポータル", "学術・教材", "英語・インド諸語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://ndl.iitkgp.ac.in/",
+      extraLinks: [],
+      searchUrlTemplate: null,
+      searchLabel: "",
+      keywords: "インド NDLI IIT Kharagpur NCERT 教材 ポータル"
+    },
+    {
+      id: "trove",
+      name: "Trove（オーストラリア国立図書館 NLA）",
+      country: "オーストラリア",
+      region: "oceania",
+      eras: ["c19", "c20early", "modern"],
+      genres: ["newspapers", "books", "maps_images"],
+      rCode: "R0",
+      rLabel: "不要（OCR訂正等任意／NLAカードは豪州居住者のみ）",
+      jCode: "J3",
+      jLabel: "新聞1803–1954/55は無料全文（他はリンク先依存）",
+      dCode: "D3",
+      dLabel: "新聞記事・ページは印刷/DL可（他はリンク先依存）",
+      tCode: "hybrid",
+      tLabel: "混合（新聞は直接保有／他はポータル）",
+      freeFullText: true,
+      unverified: false,
+      warning: false,
+      scale: "新聞1803–1955年ほか豪州官報・女性誌アーカイブ（2026年11月調査時点）",
+      strengths: "豪州歴史新聞（1803–1954/55）、官報、Australian Women's Weekly アーカイブ",
+      notes: "1955–1990年の著作権あり新聞は紙・マイクロ中心です。NLAカード（豪州居住者限定）は新聞閲覧には不要で、別枠のeResources用です。",
+      aiNote: "閉鎖危機説は古い（2023年4月に4年3,300万豪ドル＋2027年7月以降年920万豪ドルの継続予算決定で存続）。",
+      badges: ["新聞に強い", "直接(新聞)+ポータル", "英語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://trove.nla.gov.au/",
+      extraLinks: [{ label: "豪州新聞ガイド(NLA)", url: "https://www.library.gov.au/research/research-guides-0/australian-newspapers-research-guide/australian-newspapers-online" }],
+      searchUrlTemplate: "https://trove.nla.gov.au/search?keyword={q}",
+      searchLabel: "Troveで検索",
+      keywords: "オーストラリア 豪州 Trove NLA 新聞 官報"
+    },
+    {
+      id: "digitalnz",
+      name: "DigitalNZ（ニュージーランド国立図書館運営）",
+      country: "ニュージーランド",
+      region: "oceania",
+      eras: ["c19", "c20early", "modern"],
+      genres: ["maps_images", "newspapers", "books", "web_media"],
+      rCode: "R0",
+      rLabel: "不要（Stories作成のみ登録）",
+      jCode: "J-",
+      jLabel: "リンク先依存（権利フィルタあり）",
+      dCode: "D-",
+      dLabel: "リンク先依存",
+      tCode: "portal",
+      tLabel: "ポータル（リンク型）",
+      freeFullText: false,
+      unverified: false,
+      warning: false,
+      scale: "3,000万件超・200機関超を索引（2026年11月調査時点）",
+      strengths: "NZの写真・新聞・映像・博物館資料の横断発見（別途 Papers Past の新聞全文も強力）",
+      notes: "公式ガイドでも「検索サービス」と位置づけられ、原ファイルは各提携機関が保有しています。",
+      aiNote: "ポータルである点を落とすと誤り。",
+      badges: ["ポータル", "写真・新聞・映像", "英語・マオリ語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://digitalnz.org/",
+      extraLinks: [{ label: "公式ガイド", url: "https://natlib.govt.nz/teaching-and-learning-resources/teaching-tools-resource-guides/digitalnz-guide" }],
+      searchUrlTemplate: "https://digitalnz.org/records?text={q}",
+      searchLabel: "DigitalNZで検索",
+      keywords: "ニュージーランド NZ DigitalNZ Papers Past ポータル"
+    },
+    {
+      id: "internet-archive",
+      name: "Internet Archive / Open Library（併記）",
+      country: "米国（非営利）",
+      region: "north_america",
+      eras: ["pre19", "c19", "c20early", "modern"],
+      genres: ["books", "web_media", "newspapers", "manuscripts", "maps_images"],
+      rCode: "R0",
+      rLabel: "R0（閲覧・PDのDL不要）／ R1（Open Library貸出は無料アカウント必須）",
+      jCode: "J2",
+      jLabel: "PDは全文可／著作権ありは残存分のみ1時間・14日貸出",
+      dCode: "D3",
+      dLabel: "PDはPDF/EPUB等一括DL可（貸出14日分はLCP DRM＝D2）",
+      tCode: "direct",
+      tLabel: "直接保有（＋ユーザ投稿）",
+      freeFullText: true,
+      unverified: false,
+      warning: true,
+      scale: "Wayback Machine は2025年10月に1兆ページ到達とされる。訴訟後50万冊超が貸出不可（2024年確定）",
+      strengths: "PD書籍、Wayback Machine、歴史音源・映像・ソフトウェア、Open Library貸出事業",
+      notes: "Hachette訴訟で2024年9月控訴審維持・同年12月上告断念により敗訴確定。商業電子書籍のある50万冊超は貸出不可となりましたが、PDの自由閲覧・DLおよびWayback Machineは存続しています。Open Library はIAの貸出UIであり独立サービスとして二重計上していません。",
+      aiNote: "「訴訟前どおり何でも借りられる」も「閉鎖した」も誤り。",
+      badges: ["要注意: 訴訟で縮小", "PDは自由DL", "多言語"],
+      iiif: true,
+      iiifNote: "マニフェスト形式: https://iiif.archive.org/iiif/{identifier}/manifest.json",
+      iiifUrl: "https://help.archive.org/help/internet-archive-iiif/",
+      officialUrl: "https://archive.org/",
+      extraLinks: [{ label: "Open Library", url: "https://openlibrary.org/" }],
+      searchUrlTemplate: "https://archive.org/search?query={q}",
+      searchLabel: "Internet Archiveで検索",
+      keywords: "IA Internet Archive Open Library Wayback Machine DRM Hachette 訴訟"
+    },
+    {
+      id: "hathitrust",
+      name: "HathiTrust Digital Library",
+      country: "米国（大学連合）",
+      region: "north_america",
+      eras: ["pre19", "c19", "c20early", "modern"],
+      genres: ["books", "academic"],
+      rCode: "R0",
+      rLabel: "R0（検索・full-view不要）／ R3（一括PDF DLは提携館員有利）",
+      jCode: "J2",
+      jLabel: "米国刊95年超・外国刊125年超が原則PD（一部外国刊は米国IP限定）",
+      dCode: "D2",
+      dLabel: "制限なしPDは一括可、Google由来PDは非会員1ページずつ（会員はD3）",
+      tCode: "direct",
+      tLabel: "直接リポジトリ",
+      freeFullText: true,
+      unverified: false,
+      warning: false,
+      scale: "1,800万冊超、米国PD約670万冊（2024年9月時点）",
+      strengths: "米大学図書館の Google Books スキャン保存と全文検索",
+      notes: "単一の「1923年以前」等の線引きは誤りです。公式現行説明では米国刊95年超・外国刊125年超が原則PDで、1899–1928年刊の外国作品等は米国IP限定（日本IP不可）。Google由来PDの一括PDFが落とせない場合は Google Books 側を確認するのが実用的です。ETASはコロナ禍の臨時措置でした。",
+      aiNote: "年次の単一線引きと「誰でもフルPDF可」がAI要約で最頻出の誤り。",
+      badges: ["PDでも地域IP差あり", "全文検索に強い", "多言語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://www.hathitrust.org/",
+      extraLinks: [{ label: "著作権・アクセス解説", url: "https://www.hathitrust.org/the-collection/search-access/copyright-access/" }],
+      searchUrlTemplate: "https://catalog.hathitrust.org/Search/Home?lookfor={q}",
+      searchLabel: "HathiTrustカタログ検索",
+      keywords: "HathiTrust 大学図書館 Google Books 1923 米国IP"
+    },
+    {
+      id: "gutenberg",
+      name: "Project Gutenberg",
+      country: "米国（非営利）",
+      region: "north_america",
+      eras: ["pre19", "c19", "c20early"],
+      genres: ["books"],
+      rCode: "R0",
+      rLabel: "不要（アカウント自体なし）",
+      jCode: "J3",
+      jLabel: "米国PD古典を各種形式で全文閲覧可",
+      dCode: "D3",
+      dLabel: "EPUB/Kindle/HTML/テキストをDRMなしDL可（PDFは全点にない）",
+      tCode: "direct",
+      tLabel: "直接保有（校正済みテキスト）",
+      freeFullText: true,
+      unverified: false,
+      warning: false,
+      scale: "79,000冊超（2026年時点の案内）",
+      strengths: "英米古典文学（校正済み電子テキスト・EPUB）、日本語作品は少ない",
+      notes: "米国法基準でPD判定しているため、没後70年が基準の日本では未PD作品が含まれ得ると公式が警告しています（再配布時は日本法確認が必要）。ドイツ（2018–2021、一部継続）やイタリアでの遮断事例があり世界中一律アクセスではありません。",
+      aiNote: "正しい（法域差・著作権残存の可能性に留意）。",
+      badges: ["PD中心", "EPUB・テキスト", "英語中心"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://www.gutenberg.org/",
+      extraLinks: [],
+      searchUrlTemplate: "https://www.gutenberg.org/ebooks/search/?query={q}",
+      searchLabel: "Gutenbergで検索",
+      keywords: "Project Gutenberg プロジェクト・グーテンベルク EPUB 古典 英語"
+    },
+
+    /* 第3章 リスト漏れ主要サービス */
+    {
+      id: "aozora",
+      name: "青空文庫",
+      country: "日本",
+      region: "jp",
+      eras: ["c19", "c20early"],
+      genres: ["books"],
+      rCode: "R0",
+      rLabel: "不要",
+      jCode: "J3",
+      jLabel: "日本法PD＋許諾作品をXHTMLで即読",
+      dCode: "D3",
+      dLabel: "テキストファイル等DL可（公式EPUB配布はなし）",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: true,
+      unverified: false,
+      warning: false,
+      scale: "約17,800作品（2026年時点）",
+      strengths: "日本語の近代文学・古典（日本語作品を読むならNDLより先に挙げるべき筆頭）",
+      notes: "日本法で著作権消滅（原則没後70年）および許諾作品のみ収録。公式としてのEPUB配布はなく、外部リーダーやストア等を利用します。",
+      aiNote: "リスト漏れになりやすい最重要の日本語古典アーカイブ。",
+      badges: ["PD中心", "校正テキスト", "日本語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://www.aozora.gr.jp/",
+      extraLinks: [],
+      searchUrlTemplate: null,
+      searchLabel: "",
+      keywords: "青空文庫 Aozora 日本文学 日本語 小説 古典"
+    },
+    {
+      id: "google-books",
+      name: "Google Books",
+      country: "米国（企業）",
+      region: "global",
+      eras: ["pre19", "c19", "c20early", "modern"],
+      genres: ["books", "academic"],
+      rCode: "R0",
+      rLabel: "不要",
+      jCode: "J2",
+      jLabel: "Full viewのPDは閲覧可（著作権ありはプレビュー/スニペット）",
+      dCode: "D3",
+      dLabel: "Full viewのPDは一括PDF DL可（国別表示差あり）",
+      tCode: "direct",
+      tLabel: "直接保有（＋プレビュー）",
+      freeFullText: true,
+      unverified: false,
+      warning: false,
+      scale: "世界各国の図書館スキャンを含む大規模インデックス（2026年11月調査時点）",
+      strengths: "HathiTrustで1ページずつしか落とせないGoogle由来PDをPDF一括DLできる迂回路として高実用度",
+      notes: "国ごとに著作権判定・表示が変わります。著作権あり書籍は Limited Preview または Snippet のみとなります。",
+      aiNote: "HathiTrustの1ページDL制限を補う実務上の重要ルート。",
+      badges: ["PD一括PDF可", "国別判定", "多言語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://books.google.com/",
+      extraLinks: [{ label: "UC HathiTrust比較ヘルプ", url: "https://help.hathitrust.universityofcalifornia.edu/support/solutions/articles/9000208440-part-3-when-to-use-google-books" }],
+      searchUrlTemplate: "https://www.google.com/search?tbm=bks&q={q}",
+      searchLabel: "Google Booksで検索",
+      keywords: "Google Books ブックス PDF スキャン 迂回路"
+    },
+    {
+      id: "wikisource",
+      name: "Wikisource（ウィキソース／日・英ほか多言語）",
+      country: "国際（Wikimedia）",
+      region: "global",
+      eras: ["pre19", "c19", "c20early"],
+      genres: ["books", "manuscripts"],
+      rCode: "R0",
+      rLabel: "不要",
+      jCode: "J3",
+      jLabel: "校正済みテキスト全文を多言語で閲覧可",
+      dCode: "D3",
+      dLabel: "WSexportでEPUB / PDF一括DL可",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: true,
+      unverified: false,
+      warning: false,
+      scale: "日・英ほか多言語コミュニティによる校正済みテキスト（2026年11月調査時点）",
+      strengths: "スキャン画像ではなく「読める・コピーできる校正済みテキスト」が欲しい場合に Gutenberg と並ぶ有力選択肢",
+      notes: "言語版ごとに著作権基準や所蔵範囲が異なります。",
+      aiNote: "テキスト利用において実務価値が高い。",
+      badges: ["PD中心", "EPUB/PDF可", "多言語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://wikisource.org/",
+      extraLinks: [
+        { label: "日本語版トップ", url: "https://ja.wikisource.org/" },
+        { label: "英語版トップ", url: "https://en.wikisource.org/" }
+      ],
+      searchUrlTemplate: "https://ja.wikisource.org/w/index.php?search={q}",
+      searchLabel: "日本語版Wikisource検索",
+      extraSearchTemplate: "https://en.wikisource.org/w/index.php?search={q}",
+      extraSearchLabel: "英語版Wikisource検索",
+      keywords: "Wikisource ウィキソース テキスト EPUB WSexport"
+    },
+    {
+      id: "standard-ebooks",
+      name: "Standard Ebooks",
+      country: "米国（非営利）",
+      region: "north_america",
+      eras: ["pre19", "c19", "c20early"],
+      genres: ["books"],
+      rCode: "R0",
+      rLabel: "不要",
+      jCode: "J3",
+      jLabel: "米国PD古典を洗練された組版で全文可",
+      dCode: "D3",
+      dLabel: "高品質EPUB等をDRMなしDL可",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: true,
+      unverified: false,
+      warning: false,
+      scale: "約1,000点規模で精選（2026年11月調査時点）",
+      strengths: "点数は少ないものの、英語古典の組版・読みやすさは最上級",
+      notes: "米国PD作品が対象のため、日本国内法での著作権残存には念のためご留意ください。",
+      aiNote: "リスト漏れになりやすい高品質EPUB候補。",
+      badges: ["PD中心", "高品質EPUB", "英語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://standardebooks.org/",
+      extraLinks: [],
+      searchUrlTemplate: "https://standardebooks.org/ebooks?query={q}",
+      searchLabel: "Standard Ebooksで検索",
+      keywords: "Standard Ebooks EPUB 英語 古典"
+    },
+    {
+      id: "core-doaj-doab",
+      name: "CORE / DOAJ / DOAB（オープンアクセス学術検索）",
+      country: "英・国際",
+      region: "global",
+      eras: ["modern"],
+      genres: ["academic", "books"],
+      rCode: "R0",
+      rLabel: "不要",
+      jCode: "J-",
+      jLabel: "リンク先依存（OA論文・書籍は提供元で閲覧）",
+      dCode: "D-",
+      dLabel: "リンク先依存（提供元で全文PDF DL可が多い）",
+      tCode: "portal",
+      tLabel: "ポータル（学術集約）",
+      freeFullText: false,
+      unverified: false,
+      warning: false,
+      scale: "COREは4億件超レコード、DOABは10万冊超の査読済みOA書籍への案内（2026年11月調査参照）",
+      strengths: "「本・新聞」とは別枠の「学術」必須検索先（OA論文・査読誌・OA学術書）",
+      notes: "すべてが全文PDF直リンクではなく、メタデータのみのレコードも混在します。提供元ページでPDFを取得する形が多いです。",
+      aiNote: "学術資料を探す場合は古典アーカイブとは別軸で案内すべき。",
+      badges: ["ポータル", "学術", "多言語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://core.ac.uk/",
+      extraLinks: [
+        { label: "DOAJ（OA学術誌）", url: "https://doaj.org/" },
+        { label: "DOAB（OA学術書）", url: "https://www.doabooks.org/" }
+      ],
+      searchUrlTemplate: "https://core.ac.uk/search?q={q}",
+      searchLabel: "COREで論文検索",
+      extraSearchTemplate: "https://directory.doabooks.org/discover?query={q}",
+      extraSearchLabel: "DOABで学術書検索",
+      keywords: "CORE DOAJ DOAB オープンアクセス 学術 論文 OA"
+    },
+    {
+      id: "finland-digi",
+      name: "フィンランド国立図書館 digi.kansalliskirjasto.fi",
+      country: "フィンランド",
+      region: "europe",
+      eras: ["c19", "c20early"],
+      genres: ["newspapers", "books"],
+      rCode: "R0",
+      rLabel: "不要（PD分）／新年代は納本図書館・大学Tutkain限定",
+      jCode: "J2",
+      jLabel: "著作権フリー分（新聞1919年より前・雑誌1913年まで等）可",
+      dCode: "D3",
+      dLabel: "著作権フリー分はDL可",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: true,
+      unverified: false,
+      warning: false,
+      scale: "3,300万ページ超（2026年11月調査時点）",
+      strengths: "年代でDL可否が公式明示される好例（歴史新聞・雑誌・書籍）",
+      notes: "新しい新聞（1919年以降等）は納本図書館端末や大学ログイン（Tutkain）限定です。",
+      aiNote: "年代によるアクセス境界が透明な模範例。",
+      badges: ["新聞に強い", "年代制限明記", "フィンランド語・スウェーデン語"],
+      iiif: true,
+      iiifNote: "各作品ページの「Citation tool」から IIIF Manifest リンクを取得可",
+      iiifUrl: "https://www.kansalliskirjasto.fi/en/services/digikansalliskirjastofi-digital-service",
+      officialUrl: "https://digi.kansalliskirjasto.fi/",
+      extraLinks: [{ label: "公式利用案内", url: "https://www.kansalliskirjasto.fi/en/services/digikansalliskirjastofi-digital-service" }],
+      searchUrlTemplate: "https://digi.kansalliskirjasto.fi/search?query={q}",
+      searchLabel: "フィンランドDigiで検索",
+      keywords: "フィンランド Kansalliskirjasto 新聞 雑誌 Tutkain"
+    },
+    {
+      id: "norway-nb",
+      name: "ノルウェー国立図書館 nb.no (Bokhylla)",
+      country: "ノルウェー",
+      region: "europe",
+      eras: ["c19", "c20early", "modern"],
+      genres: ["books", "newspapers", "maps_images"],
+      rCode: "R0",
+      rLabel: "R0（PD分）／ R3（国外研究者は目的申請し6か月単位の許可制）",
+      jCode: "J2",
+      jLabel: "PDは世界中可／2005年以前著作権あり書籍はノルウェーIP限定",
+      dCode: "D2",
+      dLabel: "対象による",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: true,
+      unverified: false,
+      warning: false,
+      scale: "2005年以前のノルウェー刊行書籍（Bokhylla）ほか（2026年11月調査時点）",
+      strengths: "PD資料およびノルウェー国内IP限定による包括公開制度（2群分類では説明不能な代表例）",
+      notes: "日本からは著作権あり書籍が原則読めませんが、国外研究者・翻訳者等は目的を申請すれば6か月単位の許可制で閲覧できる制度があります。",
+      aiNote: "「ノルウェーの全書籍が世界中から読める」は誤り（IPジオブロックあり）。",
+      badges: ["PDのみ国外可", "ジオブロック例", "ノルウェー語"],
+      iiif: true,
+      iiifNote: "マニフェスト形式: https://api.nb.no/catalog/v1/iiif/{identifier}/manifest",
+      iiifUrl: "https://www.nb.no/en/access-to-bokhylla-from-abroad/",
+      officialUrl: "https://www.nb.no/",
+      extraLinks: [{ label: "国外アクセス申請案内", url: "https://www.nb.no/en/access-to-bokhylla-from-abroad/" }],
+      searchUrlTemplate: "https://www.nb.no/search?q={q}",
+      searchLabel: "nb.noで検索",
+      keywords: "ノルウェー Bokhylla nb.no IP制限 国外申請"
+    },
+    {
+      id: "portugal-bnd",
+      name: "ポルトガル国立図書館 BNDigital",
+      country: "ポルトガル",
+      region: "europe",
+      eras: ["pre19", "c19", "c20early"],
+      genres: ["books", "manuscripts", "newspapers", "maps_images"],
+      rCode: "R0",
+      rLabel: "不要（PD中心）",
+      jCode: "J2",
+      jLabel: "PD中心に閲覧可（細部未検証）",
+      dCode: "D2",
+      dLabel: "細部未検証",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: true,
+      unverified: true,
+      warning: false,
+      scale: "ポルトガル国立図書館デジタルコレクション（2026年11月調査時点）",
+      strengths: "ポルトガル語の古典書籍、写本、定期刊行物、地図",
+      notes: "Europeana経由でも到達可能ですが直接入口として重要。本調査では個別のDL上限・挙動の細部まで個別検証していません。",
+      aiNote: "直接入口として収録（要追加検証）。",
+      badges: ["追加検証中", "PD中心", "ポルトガル語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://bndigital.bnportugal.gov.pt/",
+      extraLinks: [],
+      searchUrlTemplate: null,
+      searchLabel: "",
+      keywords: "ポルトガル BNDigital ポルトガル語"
+    },
+    {
+      id: "italy-ic",
+      name: "イタリア Internet Culturale / Biblioteca Italiana",
+      country: "イタリア",
+      region: "europe",
+      eras: ["pre19", "c19", "c20early"],
+      genres: ["books", "manuscripts", "maps_images"],
+      rCode: "R0",
+      rLabel: "不要（PD中心）",
+      jCode: "J2",
+      jLabel: "PD中心に閲覧可（細部未検証）",
+      dCode: "D2",
+      dLabel: "細部未検証",
+      tCode: "direct",
+      tLabel: "直接・集約入口",
+      freeFullText: true,
+      unverified: true,
+      warning: false,
+      scale: "イタリア各図書館のデジタルコレクション・文学電子テキスト（2026年11月調査時点）",
+      strengths: "イタリア語の古典文学・写本・歴史資料",
+      notes: "「Internet Culturale が現行のイタリア国立中央図書館の単一全文倉庫である」と単純化することはできません。各館コレクションの細部は要追加検証です。",
+      aiNote: "イタリア国立中央図書館の単一全文倉庫と混同しないこと。",
+      badges: ["追加検証中", "PD中心", "イタリア語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://www.internetculturale.it/",
+      extraLinks: [{ label: "Biblioteca Italiana", url: "http://www.bibliotecaitaliana.it/" }],
+      searchUrlTemplate: "https://www.internetculturale.it/it/16/search?q={q}",
+      searchLabel: "Internet Culturaleで検索",
+      keywords: "イタリア Internet Culturale Biblioteca Italiana イタリア語"
+    },
+    {
+      id: "denmark-kb",
+      name: "デンマーク王立図書館 Det Kgl. Bibliotek",
+      country: "デンマーク",
+      region: "europe",
+      eras: ["pre19", "c19", "c20early"],
+      genres: ["books", "manuscripts", "maps_images"],
+      rCode: "R0",
+      rLabel: "不要（PD中心）",
+      jCode: "J2",
+      jLabel: "PD中心に閲覧可（細部未検証）",
+      dCode: "D2",
+      dLabel: "細部未検証",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: true,
+      unverified: true,
+      warning: false,
+      scale: "デンマーク王立図書館デジタルコレクション（2026年11月調査時点）",
+      strengths: "デンマーク・北欧の写本、地図、画像、書籍コレクション",
+      notes: "Europeana経由でも閲覧できますが直接入口として収録。本調査では各コレクションの細かいDL仕様までは未検証です。",
+      aiNote: "国別直接入口として収録（要追加検証）。",
+      badges: ["追加検証中", "写本・地図", "デンマーク語"],
+      iiif: true,
+      iiifNote: "写本・地図等のデジタルコレクションでIIIF導入（Europeana連携含む）",
+      iiifUrl: "https://www.kb.dk/",
+      officialUrl: "https://www.kb.dk/",
+      extraLinks: [],
+      searchUrlTemplate: null,
+      searchLabel: "",
+      keywords: "デンマーク Det Kgl. Bibliotek 王立図書館 北欧"
+    },
+    {
+      id: "czech-kramerius",
+      name: "チェコ Kramerius（チェコ国立図書館）",
+      country: "チェコ",
+      region: "europe",
+      eras: ["pre19", "c19", "c20early"],
+      genres: ["books", "newspapers", "manuscripts"],
+      rCode: "R0",
+      rLabel: "R0（PD分）／ R4（著作権ありは館内限定）",
+      jCode: "J2",
+      jLabel: "PD中心に登録不要で閲覧可（細部未検証）",
+      dCode: "D2",
+      dLabel: "細部未検証",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: true,
+      unverified: true,
+      warning: false,
+      scale: "チェコ国立図書館 Kramerius 5 等の公開コレクション（2026年11月調査時点）",
+      strengths: "チェコ語の書籍・定期刊行物・貴重書",
+      notes: "著作権あり資料が館内限定であることが明確です。公開分のDL細部等については追加検証が必要です。",
+      aiNote: "権利境界が明確な欧州直接リポジトリの1つ（細部は要追加検証）。",
+      badges: ["追加検証中", "PD中心", "チェコ語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://kramerius5.nkp.cz/",
+      extraLinks: [{ label: "NDKポータル", url: "https://ndk.cz/" }],
+      searchUrlTemplate: null,
+      searchLabel: "",
+      keywords: "チェコ Kramerius チェコ国立図書館 NDK"
+    },
+    {
+      id: "russia-neb",
+      name: "ロシア NEB (rusneb.ru / 国立電子図書館)",
+      country: "ロシア",
+      region: "europe",
+      eras: ["c19", "c20early", "modern"],
+      genres: ["books", "newspapers", "academic"],
+      rCode: "R0",
+      rLabel: "R0（OA分）／ R4（著作権ありは閲覧室限定）",
+      jCode: "J1",
+      jLabel: "国外からの到達性が不安定（403等の報告あり）",
+      dCode: "D2",
+      dLabel: "未確認・到達性不安定",
+      tCode: "hybrid",
+      tLabel: "混合（集約＋直接）",
+      freeFullText: false,
+      unverified: true,
+      warning: true,
+      scale: "575万件、94%がオープンアクセスとされる（2024年11月時点）",
+      strengths: "ロシア語書籍・学位論文・歴史資料",
+      notes: "ロシア国立図書館運営。国外からの接続が不安定（403等）という報告があり、日本から無条件に「無料で読める」とは分類できません。",
+      aiNote: "到達性の不安定さを落とすと誤解を招きます。",
+      badges: ["追加検証中", "要注意: 到達性不安定", "ロシア語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://rusneb.ru/",
+      extraLinks: [],
+      searchUrlTemplate: null,
+      searchLabel: "",
+      keywords: "ロシア NEB rusneb 到達性 403 ロシア語"
+    },
+    {
+      id: "mexico-unam",
+      name: "メキシコ Biblioteca Nacional Digital / Hemeroteca Nacional Digital (UNAM)",
+      country: "メキシコ",
+      region: "latin_america",
+      eras: ["pre19", "c19", "c20early"],
+      genres: ["books", "newspapers", "manuscripts"],
+      rCode: "R0",
+      rLabel: "不要",
+      jCode: "J2",
+      jLabel: "植民地期〜20世紀初頭資料を無料公開（DL細部未検証）",
+      dCode: "D2",
+      dLabel: "個別のDL可否は未検証",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: true,
+      unverified: true,
+      warning: false,
+      scale: "UNAM運営のメキシコ国立図書館・国立新聞図書館デジタルアーカイブ（2026年11月調査時点）",
+      strengths: "スペイン語圏の植民地期〜20世紀初頭書籍・新聞・写本",
+      notes: "大学図書館ガイドでも広く収録される主要入口です。日本からの個別DL可否などは追加実地検証が必要です。",
+      aiNote: "スペイン語圏ではスペイン BNE に次いで重要。",
+      badges: ["追加検証中", "植民地期〜20世紀初頭", "スペイン語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://bndm.bnm.unam.mx/",
+      extraLinks: [{ label: "HNDM新聞(UNAM)", url: "https://hndm.unam.mx/" }],
+      searchUrlTemplate: null,
+      searchLabel: "",
+      keywords: "メキシコ UNAM BNDM HNDM スペイン語 新聞"
+    },
+    {
+      id: "argentina-bnmm",
+      name: "アルゼンチン Biblioteca Nacional Mariano Moreno Colecciones Digitales",
+      country: "アルゼンチン",
+      region: "latin_america",
+      eras: ["pre19", "c19", "c20early"],
+      genres: ["books", "newspapers", "manuscripts"],
+      rCode: "R0",
+      rLabel: "不要",
+      jCode: "J2",
+      jLabel: "植民地期〜20世紀初頭資料を無料公開（DL細部未検証）",
+      dCode: "D2",
+      dLabel: "個別のDL可否は未検証",
+      tCode: "direct",
+      tLabel: "直接保有",
+      freeFullText: true,
+      unverified: true,
+      warning: false,
+      scale: "アルゼンチン国立図書館デジタルコレクション（2026年11月調査時点）",
+      strengths: "南米・スペイン語圏の植民地期〜20世紀初頭書籍・新聞・写本",
+      notes: "大学図書館案内で広く収録される入口ですが、個別のDL可否は本調査では未検証です。",
+      aiNote: "中南米の代表館の1つ（要追加検証）。",
+      badges: ["追加検証中", "植民地期〜20世紀初頭", "スペイン語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "https://www.bn.gov.ar/",
+      extraLinks: [{ label: "BNMMカタログ", url: "https://catalogo.bn.gov.ar/" }],
+      searchUrlTemplate: null,
+      searchLabel: "",
+      keywords: "アルゼンチン BNMM Mariano Moreno スペイン語"
+    },
+    {
+      id: "ibero-bdpi",
+      name: "BDPI（イベロアメリカ文化遺産デジタル図書館）",
+      country: "中南米・イベロアメリカ",
+      region: "latin_america",
+      eras: ["pre19", "c19", "c20early"],
+      genres: ["books", "newspapers", "manuscripts", "maps_images"],
+      rCode: "R0",
+      rLabel: "不要",
+      jCode: "J-",
+      jLabel: "リンク先依存（各国立図書館へ誘導）",
+      dCode: "D-",
+      dLabel: "リンク先依存（DL可否未検証）",
+      tCode: "portal",
+      tLabel: "ポータル（各国館リンク型）",
+      freeFullText: false,
+      unverified: true,
+      warning: false,
+      scale: "イベロアメリカ諸国の国立図書館連携ポータル（2026年11月調査時点）",
+      strengths: "中南米・イベリア半島各国の国立図書館コレクション横断検索",
+      notes: "各国国立図書館へリンクするポータル型です。リンク先ごとの個別DL可否は本調査では未検証です。",
+      aiNote: "ポータル型のため閲覧・DLはリンク先機関に依存。",
+      badges: ["追加検証中", "ポータル", "スペイン語・ポルトガル語"],
+      iiif: false,
+      iiifNote: "",
+      iiifUrl: "",
+      officialUrl: "http://www.iberoamericadigital.net/",
+      extraLinks: [],
+      searchUrlTemplate: null,
+      searchLabel: "",
+      keywords: "BDPI イベロアメリカ 中南米 ポータル スペイン語"
+    }
+  ];
+
+  /* DOM Elements */
+  const elFilterKw = document.getElementById("filter-keyword");
+  const elClearFilterKw = document.getElementById("clear-filter-kw");
+  const elLauncherQuery = document.getElementById("launcher-query");
+  const elClearLauncherKw = document.getElementById("clear-launcher-kw");
+  const elLauncherStatus = document.getElementById("launcher-status");
+  const elToggleFree = document.getElementById("toggle-free-fulltext");
+  const elGenrePills = document.getElementById("genre-pills");
+  const elRegion = document.getElementById("filter-region");
+  const elEra = document.getElementById("filter-era");
+  const elR = document.getElementById("filter-r");
+  const elT = document.getElementById("filter-t");
+  const elJ = document.getElementById("filter-j");
+  const elD = document.getElementById("filter-d");
+  const elIiif = document.getElementById("filter-iiif");
+  const elVerify = document.getElementById("filter-verify");
+  const elCount = document.getElementById("results-count");
+  const elResetAll = document.getElementById("reset-all-filters");
+  const elCardsGrid = document.getElementById("cards-grid");
+  const elToggleDrawer = document.getElementById("toggle-launcher-drawer");
+  const elCloseDrawer = document.getElementById("close-launcher-drawer");
+  const elDrawer = document.getElementById("launcher-drawer");
+  const elDrawerLinks = document.getElementById("launcher-links-grid");
+
+  let activeGenre = "all";
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function buildSearchUrl(template, query) {
+    const trimmed = query.trim();
+    const encoded = encodeURIComponent(trimmed || "");
+    return template.replace("{q}", encoded);
+  }
+
+  function getToneForAxis(axis, code) {
+    if (code === "J-" || code === "D-" || code === "portal") return "tone-portal";
+    if (axis === "R") {
+      if (code === "R0") return "tone-good";
+      if (code === "R1") return "tone-mid";
+      return "tone-warn";
+    }
+    if (axis === "J") {
+      if (code === "J3") return "tone-good";
+      if (code === "J2") return "tone-mid";
+      return "tone-warn";
+    }
+    if (axis === "D") {
+      if (code === "D3") return "tone-good";
+      if (code === "D2") return "tone-mid";
+      return "tone-warn";
+    }
+    if (axis === "T") {
+      if (code === "direct") return "tone-good";
+      if (code === "hybrid") return "tone-mid";
+      return "tone-portal";
+    }
+    return "";
+  }
+
+  function filterArchives() {
+    const kw = elFilterKw.value.trim().toLowerCase();
+    const onlyFree = elToggleFree.checked;
+    const region = elRegion.value;
+    const era = elEra.value;
+    const rVal = elR.value;
+    const tVal = elT.value;
+    const jVal = elJ.value;
+    const dVal = elD.value;
+    const iiifVal = elIiif.value;
+    const verifyVal = elVerify.value;
+
+    return ARCHIVES.filter((item) => {
+      if (onlyFree && !item.freeFullText) return false;
+      if (activeGenre !== "all" && !item.genres.includes(activeGenre)) return false;
+      if (region !== "all" && item.region !== region) return false;
+      if (era !== "all" && !item.eras.includes(era)) return false;
+      if (rVal !== "all" && item.rCode !== rVal) return false;
+      if (tVal !== "all" && item.tCode !== tVal) return false;
+      if (jVal !== "all" && item.jCode !== jVal) return false;
+      if (dVal !== "all" && item.dCode !== dVal) return false;
+      if (iiifVal === "yes" && !item.iiif) return false;
+      if (verifyVal === "verified" && item.unverified) return false;
+      if (verifyVal === "unverified" && !item.unverified) return false;
+
+      if (kw) {
+        const haystack = [
+          item.name,
+          item.country,
+          item.rCode,
+          item.rLabel,
+          item.jCode,
+          item.jLabel,
+          item.dCode,
+          item.dLabel,
+          item.tLabel,
+          item.strengths,
+          item.notes,
+          item.aiNote,
+          item.scale,
+          item.badges.join(" "),
+          item.keywords
+        ].join(" ").toLowerCase();
+        const tokens = kw.split(/\s+/).filter(Boolean);
+        for (const tok of tokens) {
+          if (!haystack.includes(tok)) return false;
+        }
+      }
+      return true;
+    });
+  }
+
+  function renderLauncherStatus(filtered) {
+    const q = elLauncherQuery.value.trim();
+    const searchable = filtered.filter((a) => Boolean(a.searchUrlTemplate));
+    if (q) {
+      elLauncherStatus.textContent = "「" + q + "」で現在表示中 " + filtered.length + "件のうち " + searchable.length + "件の現地検索ボタンが有効です。";
+    } else {
+      elLauncherStatus.textContent = "語句を入力すると、表示中 " + filtered.length + "件のうち対応する " + searchable.length + "件に直結検索ボタンが表示されます。";
+    }
+
+    if (!elDrawer.hidden) {
+      renderDrawerLinks(filtered, q);
+    }
+  }
+
+  function renderDrawerLinks(filtered, q) {
+    elDrawerLinks.innerHTML = "";
+    const searchable = filtered.filter((a) => Boolean(a.searchUrlTemplate));
+    if (searchable.length === 0) {
+      const msg = document.createElement("span");
+      msg.className = "no-search-note";
+      msg.textContent = "現在絞り込まれている条件には、直接検索URLに対応したアーカイブがありません。";
+      elDrawerLinks.appendChild(msg);
+      return;
+    }
+    searchable.forEach((item) => {
+      const a = document.createElement("a");
+      a.className = "launcher-chip";
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.href = q ? buildSearchUrl(item.searchUrlTemplate, q) : item.officialUrl;
+      a.textContent = item.name.replace(/（.*?）/g, "") + (q ? "：「" + q + "」 ↗" : " ↗");
+      elDrawerLinks.appendChild(a);
+    });
+  }
+
+  function renderCards() {
+    const filtered = filterArchives();
+    const launcherQ = elLauncherQuery.value.trim();
+
+    elCount.textContent = "該当 " + filtered.length + " 件 / 全 " + ARCHIVES.length + " 件";
+    renderLauncherStatus(filtered);
+
+    if (filtered.length === 0) {
+      elCardsGrid.innerHTML =
+        '<div class="empty-state">' +
+          '<p style="margin:0 0 10px;font-weight:700;">条件に一致するアーカイブがありませんでした。</p>' +
+          '<p style="margin:0 0 14px;font-size:13.5px;color:#4E5650;">絞り込み条件やトグルを緩めると再表示されます。</p>' +
+          '<button type="button" class="btn-reset" id="empty-reset-btn">条件をすべてリセット</button>' +
+        '</div>';
+      const emptyBtn = document.getElementById("empty-reset-btn");
+      if (emptyBtn) {
+        emptyBtn.addEventListener("click", resetAllFilters);
+      }
+      return;
+    }
+
+    const htmlParts = filtered.map((item) => {
+      const cardClasses = ["archive-card"];
+      if (item.warning) cardClasses.push("card-warning");
+      else if (item.tCode === "portal") cardClasses.push("card-portal");
+      else if (item.freeFullText) cardClasses.push("card-direct-free");
+
+      const badgesHtml = [];
+      if (item.iiif) {
+        badgesHtml.push('<span class="badge badge-iiif">IIIF対応</span>');
+      }
+      item.badges.forEach((b) => {
+        if (b.startsWith("要注意")) {
+          badgesHtml.push('<span class="badge badge-warn">' + escapeHtml(b) + '</span>');
+        } else if (b === "追加検証中") {
+          badgesHtml.push('<span class="badge badge-unverified">' + escapeHtml(b) + '</span>');
+        } else {
+          badgesHtml.push('<span class="badge badge-default">' + escapeHtml(b) + '</span>');
+        }
+      });
+
+      const iiifHtml = item.iiif
+        ? '<div class="iiif-box"><strong>IIIF案内：</strong>' +
+            escapeHtml(item.iiifNote) +
+            (item.iiifUrl ? ' — <a href="' + escapeHtml(item.iiifUrl) + '" target="_blank" rel="noopener noreferrer">公式仕様・案内 ↗</a>' : '') +
+          '</div>'
+        : '';
+
+      const actionsHtml = [];
+      actionsHtml.push(
+        '<a class="btn-link" href="' + escapeHtml(item.officialUrl) + '" target="_blank" rel="noopener noreferrer">公式サイト ↗</a>'
+      );
+
+      if (item.searchUrlTemplate) {
+        if (launcherQ) {
+          const url = buildSearchUrl(item.searchUrlTemplate, launcherQ);
+          actionsHtml.push(
+            '<a class="btn-link btn-search" href="' + escapeHtml(url) + '" target="_blank" rel="noopener noreferrer">' +
+              '「' + escapeHtml(launcherQ) + '」で' + escapeHtml(item.searchLabel || "現地検索") + ' ↗</a>'
+          );
+          if (item.extraSearchTemplate) {
+            const extraUrl = buildSearchUrl(item.extraSearchTemplate, launcherQ);
+            actionsHtml.push(
+              '<a class="btn-link btn-search" href="' + escapeHtml(extraUrl) + '" target="_blank" rel="noopener noreferrer">' +
+                '「' + escapeHtml(launcherQ) + '」で' + escapeHtml(item.extraSearchLabel) + ' ↗</a>'
+            );
+          }
+        } else {
+          actionsHtml.push(
+            '<span class="no-search-note">検索ランチャーに語句を入れると直接検索可</span>'
+          );
+        }
+      } else {
+        actionsHtml.push(
+          '<span class="no-search-note">直接検索URL不定のため公式から検索</span>'
+        );
+      }
+
+      if (item.extraLinks && item.extraLinks.length > 0) {
+        item.extraLinks.forEach((lnk) => {
+          actionsHtml.push(
+            '<a class="btn-link btn-secondary" href="' + escapeHtml(lnk.url) + '" target="_blank" rel="noopener noreferrer">' +
+              escapeHtml(lnk.label) + ' ↗</a>'
+          );
+        });
+      }
+
+      return (
+        '<article class="' + cardClasses.join(" ") + '">' +
+          '<div class="card-header">' +
+            '<div class="card-title-row">' +
+              '<h3 class="card-title">' + escapeHtml(item.name) + '</h3>' +
+              '<span class="card-country">' + escapeHtml(item.country) + '</span>' +
+            '</div>' +
+            '<div class="card-badges">' + badgesHtml.join("") + '</div>' +
+          '</div>' +
+
+          '<div class="axis-grid" aria-label="4軸評価">' +
+            '<div class="axis-cell ' + getToneForAxis("R", item.rCode) + '">' +
+              '<div class="axis-head"><span class="axis-name">登録</span><span class="axis-code">' + escapeHtml(item.rCode) + '</span></div>' +
+              '<div class="axis-desc">' + escapeHtml(item.rLabel) + '</div>' +
+            '</div>' +
+            '<div class="axis-cell ' + getToneForAxis("J", item.jCode) + '">' +
+              '<div class="axis-head"><span class="axis-name">日本閲覧</span><span class="axis-code">' + escapeHtml(item.jCode) + '</span></div>' +
+              '<div class="axis-desc">' + escapeHtml(item.jLabel) + '</div>' +
+            '</div>' +
+            '<div class="axis-cell ' + getToneForAxis("D", item.dCode) + '">' +
+              '<div class="axis-head"><span class="axis-name">保存</span><span class="axis-code">' + escapeHtml(item.dCode) + '</span></div>' +
+              '<div class="axis-desc">' + escapeHtml(item.dLabel) + '</div>' +
+            '</div>' +
+            '<div class="axis-cell ' + getToneForAxis("T", item.tCode) + '">' +
+              '<div class="axis-head"><span class="axis-name">型</span><span class="axis-code">T</span></div>' +
+              '<div class="axis-desc">' + escapeHtml(item.tLabel) + '</div>' +
+            '</div>' +
+          '</div>' +
+
+          '<div class="card-meta-line">' +
+            '<strong>強い時代・ジャンル：</strong>' + escapeHtml(item.strengths) +
+          '</div>' +
+
+          '<div class="card-body">' +
+            '<p><span class="card-label">規模・構成：</span>' + escapeHtml(item.scale) + '</p>' +
+            '<p><span class="card-label warn-label">注意点・実態：</span>' + escapeHtml(item.notes) + '</p>' +
+            '<p><span class="card-label">AI要約への判定：</span>' + escapeHtml(item.aiNote) + '</p>' +
+          '</div>' +
+
+          iiifHtml +
+
+          '<div class="card-footer">' + actionsHtml.join("") + '</div>' +
+        '</article>'
+      );
+    });
+
+    elCardsGrid.innerHTML = htmlParts.join("");
+  }
+
+  function resetAllFilters() {
+    elFilterKw.value = "";
+    elToggleFree.checked = false;
+    activeGenre = "all";
+    elGenrePills.querySelectorAll(".pill-btn").forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.genre === "all");
+    });
+    elRegion.value = "all";
+    elEra.value = "all";
+    elR.value = "all";
+    elT.value = "all";
+    elJ.value = "all";
+    elD.value = "all";
+    elIiif.value = "all";
+    elVerify.value = "all";
+    renderCards();
+  }
+
+  /* Event Bindings */
+  elFilterKw.addEventListener("input", renderCards);
+  elClearFilterKw.addEventListener("click", () => {
+    elFilterKw.value = "";
+    renderCards();
+    elFilterKw.focus();
+  });
+
+  elLauncherQuery.addEventListener("input", renderCards);
+  elClearLauncherKw.addEventListener("click", () => {
+    elLauncherQuery.value = "";
+    renderCards();
+    elLauncherQuery.focus();
+  });
+
+  document.querySelectorAll(".sample-chip").forEach((chip) => {
+    chip.addEventListener("click", () => {
+      elLauncherQuery.value = chip.dataset.sample || "";
+      renderCards();
+    });
+  });
+
+  elToggleFree.addEventListener("change", renderCards);
+  [elRegion, elEra, elR, elT, elJ, elD, elIiif, elVerify].forEach((sel) => {
+    sel.addEventListener("change", renderCards);
+  });
+
+  elGenrePills.addEventListener("click", (e) => {
+    const btn = e.target.closest(".pill-btn");
+    if (!btn) return;
+    activeGenre = btn.dataset.genre || "all";
+    elGenrePills.querySelectorAll(".pill-btn").forEach((b) => {
+      b.classList.toggle("active", b === btn);
+    });
+    renderCards();
+  });
+
+  elResetAll.addEventListener("click", resetAllFilters);
+
+  elToggleDrawer.addEventListener("click", () => {
+    const isHidden = elDrawer.hidden;
+    elDrawer.hidden = !isHidden;
+    elToggleDrawer.textContent = elDrawer.hidden
+      ? "対応アーカイブの検索リンク一覧を開く"
+      : "対応アーカイブの検索リンク一覧を閉じる";
+    if (!elDrawer.hidden) {
+      renderDrawerLinks(filterArchives(), elLauncherQuery.value.trim());
+    }
+  });
+
+  elCloseDrawer.addEventListener("click", () => {
+    elDrawer.hidden = true;
+    elToggleDrawer.textContent = "対応アーカイブの検索リンク一覧を開く";
+  });
+
+  /* Initial Render */
+  renderCards();
+})();
+</script>
+</body>
+</html>
